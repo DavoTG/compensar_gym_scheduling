@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+
+{% block title %}Login - Compensar Gym Scheduler{% endblock %}
+
+{% block styles %}
+<style>
+    .login-card {
+        background: rgba(30, 30, 30, 0.95);
+        padding: 3rem;
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        max-width: 550px;
+        width: 100%;
+        border: 1px solid rgba(218, 165, 32, 0.2);
+        position: relative;
+        z-index: 1;
+        text-align: center;
+    }
+
+    .login-card h2 {
+        color: #DAA520;
+        margin-bottom: 0.5rem;
+        font-size: 2rem;
+        font-weight: 600;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .login-card p {
+        color: #b0b0b0;
+        margin-bottom: 2rem;
+        line-height: 1.6;
+    }
+
+    .login-icon {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        filter: drop-shadow(0 4px 8px rgba(218, 165, 32, 0.3));
+    }
+
+    .login-btn {
+        width: 100%;
+        padding: 1.25rem;
+        background: linear-gradient(135deg, #DAA520 0%, #B8860B 100%);
+        color: #1a1a1a;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(218, 165, 32, 0.3);
+        margin-top: 1.5rem;
+    }
+
+    .login-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(218, 165, 32, 0.4);
+        background: linear-gradient(135deg, #FFD700 0%, #DAA520 100%);
+    }
+
+    .info-box {
+        background: rgba(218, 165, 32, 0.1);
+        border-left: 4px solid #DAA520;
+        padding: 1.5rem;
+        margin-top: 2rem;
+        border-radius: 4px;
+        text-align: left;
+    }
+
+    .info-box h4 {
+        color: #DAA520;
+        margin-bottom: 0.75rem;
+        font-size: 1.1rem;
+    }
+
+    .info-box ul {
+        margin: 0;
+        padding-left: 1.5rem;
+        color: #b0b0b0;
+    }
+
+    .info-box li {
+        margin-bottom: 0.75rem;
+        line-height: 1.6;
+    }
+
+    .info-box a {
+        color: #FFD700;
+        text-decoration: underline;
+    }
+
+    .info-box a:hover {
+        color: #DAA520;
+    }
+
+    .security-note {
+        margin-top: 1.5rem;
+        padding: 1rem;
+        background: rgba(76, 175, 80, 0.1);
+        border-left: 4px solid #4CAF50;
+        border-radius: 4px;
+        text-align: left;
+    }
+
+    .security-note p {
+        margin: 0;
+        color: #b0b0b0;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .security-note strong {
+        color: #4CAF50;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="login-card">
+    <div class="login-icon">🏋️</div>
+    <h2>Bienvenido</h2>
+    <p>Sistema de Reservas Automatizado para Compensar</p>
+
+    <div class="info-box">
+        <h4>📋 Instrucciones de Uso</h4>
+        <ul>
+            <li><strong>Paso 1:</strong> Haz click en el botón "Iniciar Sesión" abajo.</li>
+            <li><strong>Paso 2:</strong> Se abrirá una ventana de Chrome automáticamente.</li>
+            <li><strong>Paso 3:</strong> Inicia sesión en Compensar en esa ventana.</li>
+            <li><strong>Paso 4:</strong> ¡Listo! La ventana se cerrará y entrarás al sistema.</li>
+        </ul>
+    </div>
+
+    <form method="POST" action="{{ url_for('selenium_login') }}">
+        <button type="submit" class="login-btn">
+            🚀 Iniciar Sesión
+        </button>
+    </form>
+
+    <div class="security-note">
+        <p>
+            <strong>🔒 Nota:</strong> Usamos un navegador seguro automatizado para verificar tu sesión.
+            Tus credenciales van directo a Compensar.
+        </p>
+    </div>
+</div>
+{% endblock %}

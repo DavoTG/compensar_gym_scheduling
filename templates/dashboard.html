@@ -1,0 +1,510 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Compensar Gym Scheduler{% endblock %}
+
+{% block styles %}
+<style>
+    .dashboard {
+        max-width: 1400px;
+        width: 100%;
+        padding: 2rem;
+        position: relative;
+        z-index: 1;
+    }
+
+    .dashboard-header {
+        background: rgba(30, 30, 30, 0.95);
+        padding: 2rem;
+        border-radius: 16px;
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(218, 165, 32, 0.2);
+        position: relative;
+        z-index: 1;
+    }
+
+    .dashboard-header h2 {
+        color: #DAA520;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+    }
+
+    .dashboard-header p {
+        color: #b0b0b0;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    @media (max-width: 1024px) {
+        .grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .card {
+        background: rgba(30, 30, 30, 0.95);
+        padding: 1.5rem;
+        border-radius: 16px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(218, 165, 32, 0.2);
+        position: relative;
+        z-index: 1;
+    }
+
+    .card h3 {
+        color: #DAA520;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 600;
+    }
+
+    .deporte-section {
+        margin-bottom: 2rem;
+    }
+
+    .deporte-section h4 {
+        color: #DAA520;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid rgba(218, 165, 32, 0.3);
+        font-weight: 600;
+    }
+
+    .tiquetera-item {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 1rem;
+        margin-bottom: 0.75rem;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(218, 165, 32, 0.2);
+        color: #e0e0e0;
+    }
+
+    .tiquetera-item:hover {
+        background: rgba(218, 165, 32, 0.1);
+        border-color: #DAA520;
+        transform: translateX(4px);
+    }
+
+    .tiquetera-item.selected {
+        background: linear-gradient(135deg, rgba(218, 165, 32, 0.3) 0%, rgba(184, 134, 11, 0.3) 100%);
+        color: #FFD700;
+        border-color: #DAA520;
+        box-shadow: 0 4px 12px rgba(218, 165, 32, 0.2);
+    }
+
+    .tiquetera-name {
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+    }
+
+    .tiquetera-sede {
+        font-size: 0.9rem;
+        opacity: 0.7;
+    }
+
+    .date-selector {
+        margin: 1.5rem 0;
+    }
+
+    .date-selector label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: #e0e0e0;
+    }
+
+    .date-selector input {
+        width: 100%;
+        padding: 0.75rem;
+        border: 2px solid rgba(218, 165, 32, 0.3);
+        border-radius: 8px;
+        font-size: 1rem;
+        background: rgba(255, 255, 255, 0.05);
+        color: #e0e0e0;
+    }
+
+    .date-selector input:focus {
+        outline: none;
+        border-color: #DAA520;
+        box-shadow: 0 0 0 3px rgba(218, 165, 32, 0.1);
+    }
+
+    .horarios-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 0.75rem;
+        margin-top: 1rem;
+    }
+
+    .horario-item {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 1rem;
+        border-radius: 8px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(218, 165, 32, 0.2);
+    }
+
+    .horario-item:hover {
+        background: rgba(218, 165, 32, 0.1);
+        border-color: #DAA520;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(218, 165, 32, 0.2);
+    }
+
+    .horario-time {
+        font-weight: 600;
+        color: #e0e0e0;
+        margin-bottom: 0.25rem;
+    }
+
+    .horario-cupos {
+        font-size: 0.85rem;
+        color: #b0b0b0;
+    }
+
+    .reservas-pendientes {
+        max-height: 600px;
+        overflow-y: auto;
+    }
+
+    .reserva-item {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 1rem;
+        margin-bottom: 0.75rem;
+        border-radius: 8px;
+        border: 1px solid rgba(218, 165, 32, 0.2);
+        border-left: 4px solid #DAA520;
+    }
+
+    .reserva-item h5 {
+        color: #DAA520;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+    }
+
+    .reserva-details {
+        font-size: 0.9rem;
+        color: #b0b0b0;
+        margin-bottom: 0.5rem;
+    }
+
+    .reserva-actions {
+        display: flex;
+        gap: 0.5rem;
+        margin-top: 0.75rem;
+    }
+
+    .btn-small {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .empty-state {
+        text-align: center;
+        padding: 3rem 1rem;
+        color: #666;
+    }
+
+    .empty-state-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .action-buttons {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+
+    .loading {
+        text-align: center;
+        padding: 2rem;
+        color: #b0b0b0;
+    }
+
+    .badge {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        border-radius: 12px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        background: linear-gradient(135deg, #DAA520 0%, #B8860B 100%);
+        color: #1a1a1a;
+        box-shadow: 0 2px 4px rgba(218, 165, 32, 0.3);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="dashboard">
+    <div class="dashboard-header">
+        <h2>🎯 Dashboard de Reservas</h2>
+        <p>Selecciona tus actividades y horarios. Puedes agregar múltiples reservas antes de confirmar.</p>
+    </div>
+
+    <div class="grid">
+        <!-- Panel izquierdo: Tiqueteras y Horarios -->
+        <div>
+            <div class="card">
+                <h3>📋 Selecciona una Actividad</h3>
+
+                {% for deporte, tiqueteras in deportes.items() %}
+                <div class="deporte-section">
+                    <h4>{{ deporte }}</h4>
+                    {% for tiquetera in tiqueteras %}
+                    <div class="tiquetera-item"
+                        onclick="selectTiquetera({{ tiquetera.id }}, '{{ tiquetera.nombre_centro_entrenamiento }}', '{{ tiquetera.nombre_sede }}')">
+                        <div class="tiquetera-name">{{ tiquetera.nombre_centro_entrenamiento }}</div>
+                        <div class="tiquetera-sede">📍 {{ tiquetera.nombre_sede }}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="card" id="horarios-section" style="display: none; margin-top: 2rem;">
+                <h3>🕐 Selecciona Fecha y Horario</h3>
+                <p id="selected-tiquetera-name" style="color: #b0b0b0; margin-bottom: 1rem;"></p>
+
+                <div class="date-selector">
+                    <label for="fecha">Fecha:</label>
+                    <input type="date" id="fecha" onchange="loadHorarios()">
+                </div>
+
+                <div id="horarios-container">
+                    <div class="loading">Selecciona una fecha para ver horarios disponibles</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel derecho: Reservas Pendientes -->
+        <div>
+            <div class="card">
+                <h3>
+                    📌 Reservas Pendientes
+                    <span class="badge" id="count-badge">{{ reservas_pendientes|length }}</span>
+                </h3>
+
+                <div class="reservas-pendientes" id="reservas-container">
+                    {% if reservas_pendientes %}
+                    {% for reserva in reservas_pendientes %}
+                    <div class="reserva-item">
+                        <h5>{{ reserva.tiquetera_nombre }}</h5>
+                        <div class="reserva-details">
+                            📍 {{ reserva.sede }}<br>
+                            📅 {{ reserva.fecha }}<br>
+                            🕐 {{ reserva.hora_inicio }} - {{ reserva.hora_fin }}
+                        </div>
+                        <div class="reserva-actions">
+                            <button class="btn btn-danger btn-small" onclick="eliminarReserva({{ loop.index0 }})">
+                                🗑️ Eliminar
+                            </button>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    <div class="empty-state">
+                        <div class="empty-state-icon">📭</div>
+                        <p>No hay reservas pendientes</p>
+                        <p style="font-size: 0.9rem;">Selecciona actividades y horarios para agregar</p>
+                    </div>
+                    {% endif %}
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn btn-success" onclick="confirmarReservas()" id="btn-confirmar" {% if not
+                        reservas_pendientes %}disabled{% endif %}>
+                        ✅ Confirmar Todas
+                    </button>
+                    <button class="btn btn-secondary btn-small" onclick="limpiarReservas()" {% if not
+                        reservas_pendientes %}disabled{% endif %}>
+                        🗑️ Limpiar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    let selectedTiqueteraId = null;
+    let selectedTiqueteraName = '';
+    let selectedTiqueteraSede = '';
+
+    // Configurar fecha mínima (hoy) y máxima (30 días adelante)
+    const fechaInput = document.getElementById('fecha');
+    const today = new Date();
+    const maxDate = new Date();
+    maxDate.setDate(maxDate.getDate() + 30);
+
+    fechaInput.min = today.toISOString().split('T')[0];
+    fechaInput.max = maxDate.toISOString().split('T')[0];
+    fechaInput.value = today.toISOString().split('T')[0];
+
+    function selectTiquetera(id, nombre, sede) {
+        // Remover selección anterior
+        document.querySelectorAll('.tiquetera-item').forEach(item => {
+            item.classList.remove('selected');
+        });
+
+        // Seleccionar nueva
+        event.target.closest('.tiquetera-item').classList.add('selected');
+
+        selectedTiqueteraId = id;
+        selectedTiqueteraName = nombre;
+        selectedTiqueteraSede = sede;
+
+        document.getElementById('selected-tiquetera-name').textContent = `${nombre} - ${sede}`;
+        document.getElementById('horarios-section').style.display = 'block';
+
+        loadHorarios();
+    }
+
+    async function loadHorarios() {
+        if (!selectedTiqueteraId) return;
+
+        const fecha = document.getElementById('fecha').value;
+        const container = document.getElementById('horarios-container');
+
+        container.innerHTML = '<div class="loading">⏳ Cargando horarios...</div>';
+
+        try {
+            const response = await fetch('/api/horarios', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    tiquetera_id: selectedTiqueteraId,
+                    fecha: fecha
+                })
+            });
+
+            const data = await response.json();
+
+            if (data.horarios && data.horarios.length > 0) {
+                container.innerHTML = '<div class="horarios-grid"></div>';
+                const grid = container.querySelector('.horarios-grid');
+
+                data.horarios.forEach(horario => {
+                    const item = document.createElement('div');
+                    item.className = 'horario-item';
+                    item.onclick = () => agregarReserva(horario);
+                    item.innerHTML = `
+                        <div class="horario-time">${horario.hora_inicio} - ${horario.hora_fin}</div>
+                        <div class="horario-cupos">${horario.cupos_disponibles} cupos</div>
+                    `;
+                    grid.appendChild(item);
+                });
+            } else {
+                container.innerHTML = '<div class="empty-state"><div class="empty-state-icon">😔</div><p>No hay horarios disponibles para esta fecha</p></div>';
+            }
+        } catch (error) {
+            container.innerHTML = '<div class="empty-state"><div class="empty-state-icon">❌</div><p>Error al cargar horarios</p></div>';
+            console.error('Error:', error);
+        }
+    }
+
+    async function agregarReserva(horario) {
+        try {
+            const response = await fetch('/api/agregar_reserva', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    tiquetera_id: selectedTiqueteraId,
+                    horario: horario
+                })
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                // Recargar página para actualizar lista
+                location.reload();
+            }
+        } catch (error) {
+            alert('Error al agregar reserva');
+            console.error('Error:', error);
+        }
+    }
+
+    async function eliminarReserva(index) {
+        if (!confirm('¿Estás seguro de eliminar esta reserva?')) return;
+
+        try {
+            const response = await fetch(`/api/eliminar_reserva/${index}`, {
+                method: 'DELETE'
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                location.reload();
+            }
+        } catch (error) {
+            alert('Error al eliminar reserva');
+            console.error('Error:', error);
+        }
+    }
+
+    async function confirmarReservas() {
+        if (!confirm('¿Confirmar y ejecutar TODAS las reservas pendientes?')) return;
+
+        const btn = document.getElementById('btn-confirmar');
+        btn.disabled = true;
+        btn.textContent = '⏳ Procesando...';
+
+        try {
+            const response = await fetch('/api/confirmar_reservas', {
+                method: 'POST'
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                alert(`✅ Proceso completado!\n\nExitosas: ${data.exitosas}\nFallidas: ${data.fallidas}\nTotal: ${data.total}`);
+                location.reload();
+            }
+        } catch (error) {
+            alert('Error al confirmar reservas');
+            console.error('Error:', error);
+            btn.disabled = false;
+            btn.textContent = '✅ Confirmar Todas';
+        }
+    }
+
+    async function limpiarReservas() {
+        if (!confirm('¿Estás seguro de limpiar todas las reservas pendientes?')) return;
+
+        try {
+            const response = await fetch('/api/limpiar_reservas', {
+                method: 'POST'
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                location.reload();
+            }
+        } catch (error) {
+            alert('Error al limpiar reservas');
+            console.error('Error:', error);
+        }
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,1632 @@
+<!doctype html>
+
+<html lang="es">
+<head>
+
+    <meta charset="utf-8">
+
+            <link rel="shortcut icon" href="/temas/compensar/images/favicon.ico">
+                <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1 maximum-scale=1">
+        <meta name="author"
+          content="Sistema de Gestión Deportiva - Hércules® - Deporte Virtual®">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="title" content="Mis tiqueteras | Plan Bienestar" />
+<meta name="robots" content="index, follow" />
+<meta name="description" content="Sistema de Gestión para Eventos Deportivos Hércules" />
+<meta name="keywords" content="hercules, deporte, juegos, sistema, acreditación, resultados, sistematización" />
+<meta name="language" content="es, en" />
+<meta name="original-title" content="Mis tiqueteras" />
+<meta name="angular-language" content="es" />
+<meta name="angular-translation" content="[&quot;\/V_1763931314\/cache\/cache_sistema_prod_i18n\/6c23197d207d063f42843a098dfd7e87es\/escuelas.xml\/es.json&quot;,&quot;\/V_1763931314\/cache\/cache_sistema_prod_i18n\/4369dddbde53191cfe31b708316a4bd5es\/escuelas.xml\/es.json&quot;]" />
+    <title>Mis tiqueteras | Plan Bienestar</title>
+
+                        <link rel="stylesheet" type="text/css" href="/css/print.css" media="print"/>
+    <link rel="stylesheet" type="text/css" media="all" href="//fonts.googleapis.com/css?family=Ubuntu:300,400,700"/>
+    <link rel="stylesheet" type="text/css" media="all"
+          href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400,300,800"/>
+    <!-- estilos dependientes -->
+    <link rel="stylesheet" type="text/css" media="all" href="/V_0304010/js/components/bootstrap/dist/css/bootstrap.min.css" onerror="if(typeof fallbackRetry != 'undefined')fallbackRetry(event)" />
+<link rel="stylesheet" type="text/css" media="all" href="/V_0407000/js/components/font-awesome/css/font-awesome.min.css" onerror="if(typeof fallbackRetry != 'undefined')fallbackRetry(event)" />
+<link rel="stylesheet" type="text/css" media="all" href="/V_0000000/js/components/jQuery.mmenu/src/css/jquery.mmenu.all.css" onerror="if(typeof fallbackRetry != 'undefined')fallbackRetry(event)" />
+<link rel="stylesheet" type="text/css" media="all" href="/V_2/css/sistema/tema/bootstrap/bootstrap-themes.css" onerror="if(typeof fallbackRetry != 'undefined')fallbackRetry(event)" />
+<link rel="stylesheet" type="text/css" media="all" href="/V_43/css/sistema/tema/styles.css" onerror="if(typeof fallbackRetry != 'undefined')fallbackRetry(event)" />
+
+    <script src="/js/tagManager.js?v=1.1.8" nonce="ac26a9245854e82149694567c56d876c"></script>
+    <script type="text/javascript" src="/js/cdnFallback.js" nonce="ac26a9245854e82149694567c56d876c"></script>
+    <script type="text/javascript" nonce="ac26a9245854e82149694567c56d876c">
+        var herculesStrings = {
+            herculesSearchPlaceholder: 'Buscar Menú',
+            herculesNoResultText     : 'Menú no encontrado'
+        }
+    </script>
+
+    <!-- scripts obligatorios -->
+
+                        <script type="text/javascript" src="/V_0307010/js/components/jquery/dist/jquery.min.js" nonce="ac26a9245854e82149694567c56d876c" id="jQuery"></script>
+<script type="text/javascript" src="/js/inpstrap/dist/inpstrap.min.js" nonce="ac26a9245854e82149694567c56d876c" id="bootstrap3-js"></script>
+<script type="text/javascript" src="/V_0200080/js/components/hammerjs/hammer.min.js" nonce="ac26a9245854e82149694567c56d876c"></script>
+<script type="text/javascript" src="/V_6/js/angular/sesion/app.js" nonce="ac26a9245854e82149694567c56d876c"></script>
+<script type="text/javascript" src="/V_3/js/sistema.js" nonce="ac26a9245854e82149694567c56d876c"></script>
+    <script nonce="ac26a9245854e82149694567c56d876c"
+        src="/V_0002020/js/components/@malko/l.js/l.min.js?checkLoaded">
+
+    window.tema = 'compensar';
+
+    ljs.addAliases({
+        jQuery                : '/V_0307010/js/components/jquery/dist/jquery.min.js',
+        raphael               : ['/V_0203000/js/components/raphael/raphael.min.js'],
+        'livicons-deps'       : ['jQuery', 'raphael'],
+        livicons              : ['livicons-deps', '/js/livicons/livicons-1.3.min.js'],
+        'sparkline'           : [
+            'jQuery',
+            '/V_0204000/js/components/jquery-sparkline/jquery.sparkline.min.js'
+        ],
+        'easypiechart'        : [
+            'jQuery',
+            '/V_0201060/js/components/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js'
+        ],
+        'bootstrap'           : '/css/bootstrap/css/bootstrap.css',
+        "bootstrap-responsive": '/css/bootstrap/css/bootstrap-responsive.css',
+        "bootstrap-toggle"    : [
+            '/V_0202020/js/components/bootstrap-toggle/js/bootstrap-toggle.min.js',
+            '/V_0202020/js/components/bootstrap-toggle/css/bootstrap-toggle.css'
+        ],
+        "bootstrap3-js"       : [
+            'jQuery',
+            '/js/inpstrap/dist/inpstrap.min.js',
+        ],
+        "bootstrap3-css"      : [
+            '/V_0304010/js/components/bootstrap/dist/css/bootstrap.min.css'
+        ],
+        // d3 and dependencies
+        'd3'  : [
+            '/V_0000000/js/components/d3/d3.min.js'
+        ],
+        'nvd3': [
+            'd3',
+            '/V_0000010/js/components/nvd3/nv.d3.min.js',
+            '/V_0000010/js/components/nvd3/nv.d3.min.css'
+        ],
+        'dfw' : [
+            '/js/angular/deferred-loader-watch.js?v=2'
+        ],
+        //AngularJS dependencies
+        'angularjs'                 : [
+            'dfw',
+            '/V_01050230/js/components/angular/angular.min.js',
+            'hercules-angular'
+        ],
+        'hercules-angular'          : [
+            'jQuery',
+            'hercules-translate',
+            'chieffancypants.loadingBar',
+            '/js/angular/hercules-angular.js?v=4'
+        ],
+        'hercules-translate'        : [
+            '/V_0000000/js/components/angular-translate/angular-translate.min.js',
+            '/V_0000000/js/components/angular-translate-loader-partial/angular-translate-loader-partial.min.js',
+            '/js/angular/hercules-translate.js?v=2'
+        ],
+        'ngAnimate'                 : [
+            'angularjs',
+            '/V_01050110/js/components/angular-animate/angular-animate.min.js'
+        ],
+        'ngRestmod'                 : [
+            'angularjs',
+            '/V_01010110/js/components/angular-restmod/dist/angular-restmod-bundle.min.js',
+            '/V_01010110/js/components/angular-restmod/dist/styles/ams.min.js'
+        ],
+        'ngMessages'                : [
+            'angularjs',
+            '/V_01050110/js/components/angular-messages/angular-messages.js'
+        ],
+        'ngFileUpload'              : [
+            'angularjs',
+            '/V_0000000/js/components/ng-file-upload/ng-file-upload.min.js'
+
+        ],
+        'ngTableExport'             : [
+            'angularjs',
+            '/V_0001000/js/components/ng-table-export/ng-table-export.js'
+
+        ],
+        'xeditable'                 : [
+            'angularjs',
+            '/V_00010120/js/components/angular-xeditable/dist/js/xeditable.min.js',
+            '/V_00010120/js/components/angular-xeditable/dist/css/xeditable.css'
+        ],
+        'angular-multi-select-tree' : [
+            'angularjs',
+            '/V_0001000/js/components/angular-multi-select-tree/dist/angular-multi-select-tree-0.1.0.min.js',
+            '/V_0001000/js/components/angular-multi-select-tree/dist/angular-multi-select-tree-0.1.0.tpl.js',
+            '/V_0001000/js/components/angular-multi-select-tree/dist/angular-multi-select-tree-0.1.0.min.css'
+        ],
+        'checklist-model'           : [
+            'angularjs',
+            '/V_0001040/js/components/checklist-model/checklist-model.js'
+        ],
+        'ngResource'                : [
+            'angularjs',
+            '/V_01050110/js/components/angular-resource/angular-resource.min.js',
+        ],
+        'ngSanitize'                : [
+            'angularjs',
+            '/V_01050110/js/components/angular-sanitize/angular-sanitize.min.js'
+        ],
+        'ngTable'                   : [
+            'angularjs',
+            '/V_01000000000060/js/components/ng-table/dist/ng-table.min.js',
+            '/V_01000000000060/js/components/ng-table/dist/ng-table.min.css'
+        ],
+        'ngNvd3Directives'          : [
+            'd3',
+            'nvd3',
+            '/V_0000070/js/components/angularjs-nvd3-directives/dist/angularjs-nvd3-directives.min.js'
+        ],
+        'ngEasyPieChart'            : [
+            'angularjs',
+            '/V_0201060/js/components/jquery.easy-pie-chart/dist/angular.easypiechart.min.js'
+        ],
+        'ui.router'                 : [
+            'angularjs', 'chieffancypants.loadingBar',
+            '/V_0004030/js/components/angular-ui-router/release/angular-ui-router.min.js'
+        ],
+        'ui.tree'                   : [
+            'angularjs',
+            '/V_02022060/js/components/angular-ui-tree/dist/angular-ui-tree.min.js',
+            '/V_02022060/js/components/angular-ui-tree/dist/angular-ui-tree.min.css'
+        ],
+        'chieffancypants.loadingBar': [
+            '/V_0009000/js/components/angular-loading-bar/build/loading-bar.min.js',
+            '/V_0009000/js/components/angular-loading-bar/build/loading-bar.min.css'
+        ],
+        'angularStrap'              : [
+            'angularjs',
+            '/V_02030120/js/components/angular-strap/dist/angular-strap.min.js',
+            '/V_02030120/js/components/angular-strap/dist/angular-strap.tpl.min.js',
+            '/V_0003010/js/components/bootstrap-additions/dist/bootstrap-additions.min.css',
+            '/V_0003040/js/components/angular-motion/dist/angular-motion.min.css'
+        ],
+        'ui.select'                 : [
+            'angularjs',
+            '/V_00019080/js/components/angular-ui-select/dist/select.min.js',
+            '/V_00019080/js/components/angular-ui-select/dist/select.min.css'
+        ],
+        'ui.bootstrap'              : [
+            'angularjs',
+            '/V_0101020/js/components/angular-bootstrap/ui-bootstrap-tpls.min.js'
+        ],
+        'directiveUnbindBlur'       : [
+            '/js/angular/directives/directiveUnbindBlur.js'
+        ],
+        'directiveNumberInput'      : [
+            '/js/angular/directives/directiveNumberInput.js'
+        ],
+        "ngTagsInput"               : [
+            'angularjs',
+            '/V_0000000/js/components/ng-tags-input/ng-tags-input.min.js',
+            '/V_0000000/js/components/ng-tags-input/ng-tags-input.min.css'
+        ],
+        'ngIdle'                    : [
+            'angularjs',
+            '/V_0003050/js/components/ng-idle/angular-idle.min.js'
+        ],
+        'ui.sortable'               : [
+            'angularjs',
+            '/V_0001000/js/components/ng-sortable/dist/ng-sortable.min.js',
+            '/V_0001000/js/components/ng-sortable/dist/ng-sortable.min.css'
+        ],
+        'handsontable'              : [
+            '/V_01204000/js/components/handsontable/dist/handsontable.full.js',
+            '/V_01204000/js/components/handsontable/dist/handsontable.full.css'
+        ],
+        'hmTouchEvents'             : [
+            'angularjs',
+            '/V_0000000/js/components/angular-hammer/angular-hammer.js'
+        ],
+        'inflector'                 : [
+            'angularjs',
+            '/V_0002030/js/components/angular-inflector/dist/angular-inflector.js'
+        ],
+        'googlechart'               : [
+            'angularjs',
+            '/V_00000110/js/components/angular-google-chart/ng-google-chart.js'
+        ],
+        'angular-hotkeys'           : [
+            'angularjs',
+            '/V_0104050/js/components/angular-hotkeys/build/hotkeys.min.js',
+            '/V_0104050/js/components/angular-hotkeys/build/hotkeys.min.css'
+        ],
+        'angularI18n'               : [
+            'angularjs',
+            '/V_01050110/js/components/angular-i18n/angular-locale_es-co.js'
+        ],
+        'iCheck'                    : [
+            'jQuery',
+            'angularjs',
+            '/V_0000000/js/components/iCheck/icheck.min.js',
+            '/js/angular/directives/directiveiCheck.js'
+        ],
+        'font-awesome'              : [
+            '/V_0407000/js/components/font-awesome/css/font-awesome.min.css'
+        ],
+        'moment'                    : [
+            'jQuery',
+            '/V_02029040/js/components/moment/moment.js',
+                        '/V_02029040/js/components/moment/locale/es.js'
+                    ],
+        'angular-moment'            : [
+            'moment',
+            'angularjs',
+            '/V_0103000/js/components/angular-moment/angular-moment.js',
+        ],
+        'moment-timezone'           : [
+            'moment',
+            '/V_00050400/js/components/moment-timezone/builds/moment-timezone-with-data.min.js',
+        ],
+        'ngStorage'                 : [
+            'angularjs',
+            '/V_000/js/components/ngstorage/ngStorage.min.js',
+        ],
+        'ui.calendar'               : [
+            'jQuery',
+            'angularjs',
+            'moment-timezone',
+            '/V_03010050/js/components/fullcalendar/dist/fullcalendar.css',
+            '/V_03010050/js/components/fullcalendar/dist/fullcalendar.min.js',
+            '/V_03010050/js/components/fullcalendar/dist/gcal.js',
+            '/V_03010050/js/components/fullcalendar/dist/locale-all.js',
+            '/V_0100020/js/components/angular-ui-calendar/src/calendar.js'
+        ],
+        'jquery-file-download'      : [
+            'jQuery',
+            '/V_0104050/js/components/jquery-file-download/src/Scripts/jquery.fileDownload.js'
+        ],
+        'ui.grid'                   : [
+            'angularjs',
+            '/V_04012020/js/components/angular-ui-grid/ui-grid.min.css',
+            '/V_04012020/js/components/angular-ui-grid/ui-grid.min.js'
+        ],
+        'miniFicha'                 : [
+            'angularjs',
+            'ui.bootstrap',
+            'angularStrap',
+            '/version/js/angular/busquedaDeportista/moduloMiniFicha.js'
+        ],
+        'busquedaDeportista'        : [
+            'angularjs',
+            'ui.bootstrap',
+            'angularStrap',
+            '/version/js/angular/busquedaDeportista/moduloBusquedaDeportista.js',
+            'directiveUnbindBlur'
+        ],
+        'tablaFiltrosServicios'        : [
+            'angularjs',
+            'ui.bootstrap',
+            'angularStrap',
+            '/version/js/angular/tablaFiltrosServicios/moduloTablaFiltrosServicios.js'
+        ],
+        'miniFichaPersonalApoyo'    : [
+            'angularjs',
+            'ui.bootstrap',
+            'angularStrap',
+            '/version/js/angular/busquedaPersonalApoyo/moduloMiniFicha.js'
+        ],
+        'busquedaPersonalApoyo'     : [
+            'angularjs',
+            'ui.bootstrap',
+            'angularStrap',
+            '/version/js/angular/busquedaPersonalApoyo/moduloBusquedaPersonalApoyo.js',
+            'directiveUnbindBlur'
+        ],
+
+        'programacionGrupos'         : [
+            'angularjs',
+            'ui.bootstrap',
+            '/version/js/angular/programaciongrupos/moduloProgramacionGrupos.js'
+        ],
+        'visualizadorFormulario'     : [
+            'angularjs',
+            '/version/js/angular/formularios/moduloVisualizadorFormulario.js',
+        ],
+        'webcamjs'                   : [
+            'jQuery',
+            '/V_01000260/js/components/webcamjs/webcam.min.js'
+        ],
+        'ckeditor'                   : [
+            '/js/ckeditor/ckeditor.js',
+            // '/js/ckeditor/contents.css'
+        ],
+        'ng.ckeditor'                : [
+            'ckeditor',
+            '/V_0200050/js/components/ng-ckeditor/dist/ng-ckeditor.min.js'
+        ],
+        'moduloItem'                 : [
+            'angularjs',
+            '/version/js/angular/moduloItem/moduloItem.js'
+        ],
+        'ngMap'                      : [
+            'angularjs',
+            '/V_01016070/js/components/ngmap/build/scripts/ng-map.min.js'
+        ],
+        'ngPasswordStrength'         : [
+            'angularjs',
+            '/V_040170210/js/components/lodash/lodash.js',
+            '/V_0002010/js/components/ng-password-strength/dist/scripts/ng-password-strength.js'
+
+
+        ],
+        'ui.bootstrap.datetimepicker': [
+            'angularjs',
+            'ui.bootstrap',
+            '/V_0202030/js/components/bootstrap-ui-datetime-picker/dist/datetime-picker.js'
+        ],
+
+        'codemirror': [
+            '/V_05059040/js/components/codemirror/lib/codemirror.js',
+            '/V_05059040/js/components/codemirror/lib/codemirror.css',
+            '/V_05059040/js/components/codemirror/addon/edit/closebrackets.js',
+            '/V_05059040/js/components/codemirror/addon/edit/matchbrackets.js',
+            '/V_05059040/js/components/codemirror/mode/yaml/yaml.js',
+            '/V_05059040/js/components/codemirror/mode/css/css.js',
+            '/V_05059040/js/components/codemirror/addon/search/search.js',
+            '/V_05059040/js/components/codemirror/addon/search/searchcursor.js',
+            '/V_05059040/js/components/codemirror/addon/search/jump-to-line.js',
+            '/V_05059040/js/components/codemirror/addon/dialog/dialog.css',
+            '/V_05059040/js/components/codemirror/addon/dialog/dialog.js',
+            '/V_05059040/js/components/codemirror/addon/fold/foldcode.js',
+            '/V_05059040/js/components/codemirror/addon/fold/indent-fold.js',
+            '/V_05059040/js/components/codemirror/addon/fold/foldgutter.js',
+            '/V_05059040/js/components/codemirror/addon/fold/foldgutter.css',
+            '/V_05059040/js/components/codemirror/addon/comment/comment.js',
+            '/V_05059040/js/components/codemirror/addon/search/match-highlighter.js',
+            '/V_05059040/js/components/codemirror/addon/hint/show-hint.js',
+            '/V_05059040/js/components/codemirror/addon/hint/show-hint.css',
+            '/V_05059040/js/components/codemirror/addon/hint/css-hint.js'
+        ],
+
+        'daterangepicker'        : [
+            'jQuery',
+            'angularjs',
+            'moment',
+            '/V_02010270/js/components/bootstrap-daterangepicker/daterangepicker.js',
+            '/V_0002020/js/components/angular-daterangepicker/js/angular-daterangepicker.js',
+            '/V_02010270/js/components/bootstrap-daterangepicker/daterangepicker.css'
+        ],
+        'ui.codemirror'          : [
+            'codemirror',
+            'angularjs',
+            '/V_0000000/js/components/angular-ui-codemirror/ui-codemirror.min.js'
+        ],
+        'codemirror.javascript'  : [
+            'codemirror',
+            '/V_05059040/js/components/codemirror/mode/javascript/javascript.js'
+        ],
+        'devextreme'             : [
+            'jQuery',
+            //'ngSanitize',
+            '/V_230204/js/devextreme/Lib/js/cldr.min.js',
+            '/V_230204/js/devextreme/Lib/js/cldr/event.min.js',
+            '/V_230204/js/devextreme/Lib/js/cldr/supplemental.min.js',
+            '/V_230204/js/devextreme/Lib/js/dx.all.js',
+            '/V_230204/js/devextreme/Lib/css/dx.common.css',
+            '/V_230204/js/devextreme/Lib/css/dx.light.compact.css',
+            //'/V_230204/js/devextreme/Lib/css/dx.caplet.css',
+            '/V_230204/js/devextreme/Lib/js/localization/dx.messages.es.js',
+            '/V_230204/js/devextreme-lang.js?lang=es'
+        ],
+        'devextreme-jszip'       : [
+            '/js/devextreme/Lib/js/jszip.min.js',
+            'devextreme',
+        ],
+        'devextreme-quill'       : [
+            '/js/devextreme/Lib/js/dx-quill.min.js',
+        ],
+        'formproveedorpagohelper': [
+            'jQuery',
+            '/dvPagosEnLineaPlugin/js/formProveedorPagoHelper.js'
+        ],
+        'rzModule'               : [
+            'angularjs',
+            '/V_0607000/js/components/angularjs-slider/dist/rzslider.min.js',
+            '/V_0607000/js/components/angularjs-slider/dist/rzslider.css',
+        ],
+        'threeStateCheckbox'     : [
+            'angularjs',
+            '/V_0101000/js/components/three-state-checkbox/dist/three-state-checkbox.js',
+            '/V_0101000/js/components/three-state-checkbox/dist/three-state-checkbox.css'
+        ],
+        'selectize'              : [
+            'jQuery',
+            '/V_00012060/js/components/selectize/dist/css/selectize.bootstrap3.css',
+            '/V_00012060/js/components/selectize/dist/js/standalone/selectize.min.js'
+        ],
+        'angular-selectize'      : [
+            'selectize',
+            '/V_0102030/js/components/angular-selectize2/dist/angular-selectize.js'
+        ],
+        'angular-ui-slider'      : [
+            'jQuery',
+            '/V_0001060/js/components/angular-ui-slider/src/slider.js'
+        ],
+        'magic-edge'             : [
+            '/js/magic-edge/css/magic-edge.css',
+            '/js/magic-edge/css/farbtastic.css',
+            'jQuery',
+            '/js/magic-edge/js/magic-edge-inc.js',
+            '/js/magic-edge/js/filters.js',
+            '/js/magic-edge/js/magic-edge.js?v=2',
+            '/js/magic-edge/js/farbtastic.js',
+            'https://cdnjs.cloudflare.com/ajax/libs/camanjs/4.1.2/caman.full.min.js'
+        ],
+        'formly'                 : [
+            'angularjs',
+            '/V_00000160/js/components/angular-formly/dist/formly.bootstrap.min.js'
+        ],
+        'ui.toggle'              : [
+            '/V_0004020/js/components/angular-bootstrap-toggle/dist/angular-bootstrap-toggle.css',
+            '/V_0004020/js/components/angular-bootstrap-toggle/dist/angular-bootstrap-toggle.js'
+        ],
+        'js-video-url-parser'    : [
+            '/V_0005010/js/components/js-video-url-parser/dist/jsVideoUrlParser.js'
+        ],
+        'lectorCodigos'          : [
+            'angularjs',
+            '/version/js/angular/lectorCodigos/moduloLectorCodigos.js'
+        ],
+        'bootstrap-5'            : [
+            'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css',
+        ],
+        'iframe-resizer'         : [
+            '/V_0403030/js/components/iframe-resizer/js/iframeResizer.contentWindow.min.js',
+            '/V_0403030/js/components/iframe-resizer/js/iframeResizer.min.js'
+        ],
+        'firestore'              : [
+            '/V_0000000/js/components/firebase/firebase-app.js',
+            '/V_0000000/js/components/firebase/firebase-auth.js',
+            '/V_0000000/js/components/firebase/firebase-firestore.js'
+        ],
+        'ExcelJS'                : [
+            'https://cdnjs.cloudflare.com/ajax/libs/exceljs/3.3.1/exceljs.min.js'
+        ],
+        'FileSaver'              : [
+            'https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js'
+        ],
+        'PrintJS'                : [
+            '/V_0106000/js/components/print-js/dist/print.js'
+        ],
+        'notific8'               : [
+            'module:/V_0500020/js/components/notific8/dist/notific8.js',
+            '/V_0500020/js/components/notific8/dist/notific8.css',
+            '/js/wrapperNotific8/index.js',
+        ],
+        'tiempo-helper'         : [
+            '/js/tiempo-helper.js?v=3'
+        ],
+        'swiper'                     : [
+            '/V_0904010/js/components/swiper/swiper-bundle.min.js',
+            '/V_0904010/js/components/swiper/swiper-bundle.min.css',
+        ],
+        'vega': [
+            'https://cdn.jsdelivr.net/npm/vega@5',
+            'https://cdn.jsdelivr.net/npm/vega-embed@6',
+        ],
+        'bwip-js' : [
+            '/V_0406000/js/components/bwip-js/dist/bwip-js-min.js',
+            '/js/angular/directives/directiveBwipBarcode.js'
+        ],
+    });
+
+</script>
+    <script nonce="ac26a9245854e82149694567c56d876c">
+        ljs.load('/V_10/js/angular/login/app.js');
+
+    </script>
+
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/images/ico/apple-touch-icon-57-precomposed.png">
+
+        <script nonce="ac26a9245854e82149694567c56d876c"  async src="https://www.googletagmanager.com/gtag/js?id=G-YE5WDZMYEW" nonce="ac26a9245854e82149694567c56d876c"></script>
+
+    <script nonce="ac26a9245854e82149694567c56d876c">
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+                gtag('config', 'G-YE5WDZMYEW');
+        
+    </script>
+
+</head>
+
+<body class="leftMenu nav-collapse">
+
+
+
+
+
+<a href="/" class="logo-hercules-body">
+</a>
+
+<div id="wrapper">
+
+    <!-------------------------
+    ///// HEADER //////////////
+    --------------------------->
+
+    <div id="header">
+        <div class="logo-area clearfix">
+            <a href="#" class="logo"></a>
+        </div>
+        <!-- //logo-area-->
+        <div class="tools-bar">
+            <ul class="nav navbar-nav nav-main-xs tooltip-area">
+                <li class=""><a id="mainMenu" href="#" onclick="return false;" class="icon-toolsbar nav-mini tooltip-el"
+                                data-toggle="tooltip" title="" data-container="body" data-placement="bottom"
+                                data-original-title="Menú"
+                    ><i class="fa fa-bars"></i></a></li>
+            </ul>
+            <ul class="nav navbar-nav nav-top-xs hidden-xs tooltip-area">
+                <li class="h-seperate"></li>
+                <li>
+                    <a target="_blank" class="tooltip-el"
+                       href="//planbienestar.deportescompensar.com/"
+                       data-toggle="tooltip" title="" data-container="body" data-placement="bottom"
+                       data-original-title="Ver Página">
+                        <i class="fa fa-laptop"></i>
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav nav-main-xs visible-lg visible-md">
+                <li class="h-seperate"></li>
+                <li class=""><a><span class="escudo">
+            <img height="32" src="/uploads/organizacion/882b28df664ee4aa3f48b74e270e05aefb252fb6.png" alt="" title="" loading="lazy" />         </span>
+</a></li>
+                <li class="visible-lg">
+                    <a><strong>Plan Bienestar</strong></a>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right tooltip-area" id="nombre-usuario-header">
+
+                <li><a href="#menu-right" id="rightMenu" data-toggle="tooltip" class="tooltip-el"
+                       title="Menú Secundario"
+                       data-container="body"
+                       data-placement="left"><i
+                                class="fa fa-align-right"></i></a>
+                </li>
+
+                <li><a class="nav-collapse avatar-header cursor-vinculo" data-toggle="tooltip" class="tooltip-el"
+                       title="Menú Usuario"
+                       data-container="body"
+                       data-placement="down">
+                        <img alt=""
+                             src="//www.gravatar.com/avatar/d09dfd14f560114bf0394f47bca831d2?s=80&d=retro&r=g"
+                             class="circle" height="34" width="34">
+                                            </a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
+                        <em><strong>Hola</strong>, David Torres </em> <i
+                                class="dropdown-icon fa fa-angle-down"></i>
+                    </a>
+                    <ul class="dropdown-menu pull-right icon-right arrow">
+                        <!--<li><a href="#"><i class="fa fa-user"></i> Perfil</a></li>-->
+                        
+                        <li><a href="#"><i class="fa fa-bookmark"></i> Favoritos</a></li>
+
+                        <li class="divider"></li>
+
+                        
+                
+                
+                
+                <!-- superAdmin modal -->
+                                    <li>
+                        <a href="#" id="modal-cambiar-a-superadmin">
+                            <i class="livicon" data-name="unlock" data-size="17" data-color="#aaa"></i>
+                            Super Administrador                        </a>
+                    </li>
+                
+                
+                <li class=" divider">
+                </li>
+                                    <li>
+                        <a href="/sistema.php/panel/sesiones/">
+                            <i class="fa fa-square"></i>
+                            Control de Sesiones                        </a>
+                    </li>
+                                <li>
+                                            <a href="/sistema.php/logout">
+                            <i class="fa fa-sign-out"></i>
+                            Salir                        </a>
+                    
+                </li>
+            </ul>
+            <!-- //dropdown-menu-->
+            </li>
+            <li class="visible-lg">
+                <a href="#" class="h-seperate fullscreen" class="tooltip-el" data-toggle="tooltip"
+                   title="Full Screen" data-container="body"
+                   data-placement="left">
+                    <i class="fa fa-expand"></i>
+                </a>
+            </li>
+            </ul>
+        </div>
+
+        <!-- //tools-bar-->
+
+    </div>
+
+    <!-- -----------------------
+       ///// MAIN //////////////
+       --------------------------->
+
+    <div id="main">
+        
+        
+
+        <style nonce="ac26a9245854e82149694567c56d876c">
+    .sesion-activa {
+        font-size: 20px;
+        text-align: center;
+        font-weight: bold;
+
+    .subtitulo-sesion {
+        color: rgba(255, 255, 255, .7);
+        text-align: center;
+        margin-top: 15px;
+    }
+</style>
+
+<div class="panel-body">
+    <section class="panel bg-theme-lighten">
+        <div class="panel-body" >
+            <div class="sesion-activa">
+                <div class="subtitulo-sesion">Tienes una sesión activa en otro dispositivo, la puedes consultar en el panel de sesiones</div>
+            </div>
+        </div>
+    </section>
+</div>
+                    <div class="contenido dx-viewport" id="content">
+                <script nonce="ac26a9245854e82149694567c56d876c" >
+        hercules_url = {
+        url_reserva_practica_libre     : '/sistema.php/entrenamiento/reserva/practica/libre',
+        url_sedes_practica_libre       : '/sistema.php/entrenamiento/reserva/practica/libre/sedes',
+        url_deportistas                : '/sistema.php/grupofamiliar/lista/json',
+        grupofamiliar                  : true,
+        permitir_busqueda              : false,
+        url_horarios                   : '/sistema.php/entrenamiento/reserva/practica/libre/horarios',
+        url_centros_entrenamiento      : '/sistema.php/entrenamiento/reserva/practica/libre/escenarios',
+        upload_thumbnail_url           : '/uploads/thumbnail/',
+        guardar_reserva                : '/sistema.php/entrenamiento/reserva/practica/libre/guardar',
+        url_tiqueteras                 : '/sistema.php/entrenamiento/reserva/tiqueteras',
+        url_detalle_cotizacion         : '/sistema.php/entrenamiento/reserva/resumen/cotizacion',
+        url_cotizaciones               : '/sistema.php/pago/cotizacion/',
+        url_inscribir_deportista       : '/sistema.php/inscripcion/formulario/window/1/tipo/deportistas/copiar-inexistente/1',
+        url_datos_deportista           : '/sistema.php/inscripcion/datos/id/99999999999',
+        url_atributo_servicio          : '/sistema.php/atributo_servicio',
+        superusuario                   : false,
+        tieneTiquetera                 : true,
+        tipos_de_documento             : ["CC","CD","CE","CN","GE","MS","NIT","NUIP","PAS","PE","PT","RC","SC","TI","AS","DE","NT","MNC"],
+        url_precios_participantes      : '/sistema.php/practicalibre/reserva/precios/participantes',
+        inscribir_deportista_datasource: '/sistema.php/inscribir/deportista/datasource',
+        turnos_disponibles             : '/sistema.php/entrenamiento/reserva/turnos/disponibles',
+        permitir_duplicar_titular      : '',
+        permitir_registrar_acompanante : '1',
+        registrar_acompanante          : '/sistema.php/inscripcion/registro/acompanante',
+        habilitar_busqueda_turnos      : '1',
+        habilitar_formulario           : true,
+        es_sistema                     : true
+    };
+
+    ljs.load(['angularjs'],
+        '/version/dvPlanEntrenamientoPlugin/angular/entrenamientoYReservaPracticaLibre/app.js', function () {
+            angular.module('Hercules', [])
+                .constant('HerculesDatos', hercules_url);
+        });
+
+
+</script>
+
+<div ng-app="entrenamientoYReservaPracticaLibre">
+
+    <div ui-view>
+        Cargando...    </div>
+
+</div>
+            </div>
+            </div>
+    <footer id="site-footer" class="fixed hidden">
+        <section>
+
+            <!-- START Copyright -->
+            <div id="copyright">
+                <p>© Copyright | Todos los derechos reservados INP Bogotá, Colombia</p>
+            </div>
+            <!-- END Copyright -->
+
+        </section>
+    </footer>
+    <!-- -----------------------
+       ///// LEFT NAV //////////////
+       --------------------------->
+
+    <nav id="menu" class="hidden-print">
+        <ul class="nav_hercules"><li class="node_inscripciones"><span><i class="icon fa fa-user"></i>Inscripciones</span><ul class=""><li class="node_formularioInscripcion"><a href="/sistema.php/inscripcion"><i class="icon fa fa-edit"></i>Inscripción</a></li> <li class="node_venta_materiales"><a href="/sistema.php/entrenamiento/venta/materiales"><i class="icon fa fa-futbol-o"></i>Materiales</a></li></ul></li> <li class="node_entrenamiento"><span><i class="icon fa fa-bullhorn"></i>Entrenamiento</span><ul class=""><li class="node_entrenamiento_reserva_practica_libre"><a href="/sistema.php/entrenamiento/reserva/practica/libre"><i class="icon fa fa-calendar-plus-o"></i>Reservas</a></li> <li class="node_plan_afiliacion"><a href="/sistema.php/entrenamiento/plan/afiliacion"><i class="icon fa fa-cart-plus"></i>Planes</a></li> <li class="node_mis_planes"><a href="/sistema.php/entrenamiento/misplanes/"><i class="icon fa fa-shopping-bag"></i>Mis Planes</a></li> <li class="node_mis_turnos"><a href="/sistema.php/entrenamiento/mis/turnos"><i class="icon fa fa-calendar"></i>Mis Turnos</a></li> <li class="node_activacion_manilla_cajero"><a href="/sistema.php/activacion/manilla"><i class="icon fa fa-check-square"></i>Activación de Manilla</a></li> <li class="node_seguimientos_administrador"><a href="/sistema.php/seguimientos"><i class="icon fa fa-eyedropper"></i>Seguimientos</a></li></ul></li> <li class="node_inscripcion_personal"><a href="/sistema.php/inscripcion/personal/es"><i class="icon fa fa-edit"></i>Mis Datos</a></li> <li class="node_ficha"><a href="/sistema.php/ficha/participante"><i class="icon fa fa-address-card-o"></i>Mi Ficha</a></li> <li class="node_cotizacion"><a href="/sistema.php/pago/cotizacion/"><i class="icon fa fa-credit-card"></i>Mis Pagos</a></li> <li class="node_venta"><a href="/sistema.php/buscador/venta/servicios"><i class="icon fa fa-check-square"></i>Venta Servicios</a></li></ul>    </nav>
+
+    <!-- -------------------------
+       ///// LEFT NAV USUARIO ///////
+       --------------------------->
+
+    <nav id="nav">
+        <!-- panel -->
+<div id="nav-scroll">
+    <a class="nav-collapse cursor-vinculo  pull-right" style="position: relative; z-index: 2">
+        <i class="fa fa-times" style="margin: 20px"></i>
+    </a>
+    <!-- ¿Tiene privilegios de Super Administrador? -->
+    
+    <!-- ¿Es un usuario suplantado? -->
+    
+    <div class="avatar-slide">
+
+        <span class="easy-chart avatar-chart ">
+                                                <img alt=""
+                 src="//www.gravatar.com/avatar/d09dfd14f560114bf0394f47bca831d2?s=80&d=retro&r=g"
+                 class="circle"
+                 style="width: 80px;height: 80px;-moz-border-radius: 50px;-webkit-border-radius: 50px;border-radius: 50px;border-style:solid;border-color:#6CC3A0;border-width:thick"
+                >
+                    </span>
+
+        <div class="avatar-slide avatar-detail"
+             style="text-align:justify;width:100%;background-color:#262a33;font-family: 'Ubuntu'">
+            <p
+                style="text-overflow:ellipsis;
+                overflow:hidden;
+                white-space:nowrap;
+                vertical-align: middle;
+                "><strong>Hola,</strong><br> David Torres
+            </p>
+        </div>
+        <p>
+            <a class="btn btn-inverse" title="" href="/sistema.php/usuario/clave"><i
+                    class="fa fa-pencil"></i>Cambiar clave            </a>
+            <a class="btn btn-inverse" title="" href="/sistema.php/ficha/persona"><i
+                    class="fa fa-user"></i>Perfil            </a>
+        </p>
+
+        <div class="avatar-link btn-group btn-group-justified">
+            <a class="btn" href="" title="Perfil"><i class="fa fa-briefcase"></i></a>
+            <a class="btn" data-toggle="modal"
+               href="/sistema.php/mis/alertas"
+               title="Alertas" data-target="#md-notification">
+
+                <i class="fa fa-bell-o"></i>
+                            </a>
+            <a class="btn" data-toggle="modal"
+               href="/sistema.php/mis/mensajes"
+               data-target="#md-messages"
+               title="Mensajes">
+                <i class="fa fa-envelope-o"></i>
+                            </a>
+            <a class="btn" href="#menu-right" title="Permisos"><i class="fa fa-book"></i></a>
+        </div>
+    </div>
+    <div class="widget-collapse dark">
+        <header>
+            <a data-toggle="collapse" href="#collapseEntradas">
+                <i class="collapse-caret fa fa-angle-up"></i>
+                Tus últimas entradas            </a>
+        </header>
+        <section class="widget-mini-chart align-xs-right">
+            <div class="pull-left">
+                <div class="sparkline mini-chart" style="bottom:25%;">
+                    <i class="livicon" data-name="timer" data-size="60" data-color="#ff0" data-hc="#ff0"></i>
+                </div>
+            </div>
+
+            <p style="padding:5px 12px 5px 5px;">
+                Último ingreso exitoso            </p>
+            <h5 style="padding:0px 5px 5px 5px;">
+                <i class="livicon" data-name="sign-in" data-size="17" data-color="#fff" data-hc="#fff"></i>
+                2024-01-03 15:09:10            </h5>
+                            <p style="padding:5px 17px 5px 5px;">
+                    Último ingreso fallido                </p>
+                <h5 style="padding:0px 5px 5px 5px;color:rgb(255, 0, 0);">
+                    <i class="livicon" data-name="remove-circle" data-size="17" data-color="#fff" data-hc="#fff"></i>
+                    2023-02-20 17:13:26                </h5>
+                    </section>
+    </div>
+</div>
+    </nav>
+
+
+    <!--
+		/////////////////////////////////////////////////////////////////
+		//////////     RIGHT NAV MENU     //////////
+		/////////////////////////////////////////////////////////////
+		-->
+    <nav id="menu-right" class="mm-horizontal mm-ismenu mm-right mm-hassearch">
+        <script nonce="ac26a9245854e82149694567c56d876c">
+
+    ljs.load('jQuery', function () {
+        var cargado = false;
+
+        function cargarPanel() {
+            ljs.load('selectize', function () {
+                $('#datos-lateral-derecho').load('/sistema.php/ayudas/panel/', null, function () {
+                    $(this).fadeIn();
+                });
+                cargado = true;
+            });
+        }
+
+        $(document).ready(function () {
+            $(".flecha").click(function (e) {
+                e.preventDefault();
+                $('#datos-lateral-derecho').slideToggle();
+            });
+
+            $('#rightMenu').on('click', function () {
+                cargarPanel();
+            });
+
+
+        });
+    });
+</script>
+<!-- panel -->
+<div class="panel-lateral">
+
+    <ul class="mm-list">
+        <li class="label-lg mm-label">Ayudas del sistema</li>
+        <li class="node_sistema"><a href="http://hercules.university/"><span><i
+                            class="fa fa-video-camera"></i> Manuales</span></a></li>
+        <li class="hidden-xs hidden-sm" id="help"></li>
+    </ul>
+
+    <div id="datos-lateral-derecho" class="lateral-derecho">
+    </div>
+</div>
+
+    </nav>
+
+
+</div>
+
+
+<!-----------------------------------------------
+      ////////////// Buscador //////////////////////
+      --------------------------------------------->
+
+<!-----------------------------------------------
+      ////////////// Modal Super Administrador  //////////////////////
+      --------------------------------------------->
+    <script  nonce="ac26a9245854e82149694567c56d876c">
+
+    var nombresCampos = null;
+    var hercules_url_login = {
+        recordar_usuario    : '',
+        login               : '/sistema.php/usuario/superadmin',
+        resetear_contrasenia: ''
+    };
+
+    var nav = navigator.appName;
+    // Detectamos si nos visitan desde IE
+
+    var ie = navigator.userAgent.toLowerCase();
+    // Extraemos de la cadena la version
+    var version = parseInt(ie.split('msie')[1]);
+    // Dependiendo de la version mostramos un resultado
+    if (version in {6: 1, 7: 1, 8: 1, 9: 1}) {
+        var navegadorObsoleto = true;
+    }
+
+</script>
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" id="LoginApp">
+    <div class="modal-dialog modal-lg ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Reglas de Inscripción</h2>
+            </div>
+            <div class="modal-body">
+                <div class="container" style="width:100%" ng-app="LoginApp" ng-controller="LoginCtrl">
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div style="margin-top:auto">
+                                <div ng-if="!navegadorObsoleto">
+                                    <form name="login" class="fade in form-signin ng-hide" novalidate
+                                          ng-submit="submitForm()"
+                                          method="post" ng-if="!recordatorioAbierto" ng-show="!recordatorioAbierto">
+                                        <section>
+                                            <div class="alert alert-danger hide" ng-show="error"
+                                                 ng-class="{hide: !error}">{{ error.usuario }}
+                                            </div>
+                                        </section>
+                                        <section class="clearfix">
+
+                                                                                            <div class="input-group form-group">
+    <div class="input-group-addon"><i class="fa fa-user"></i></div>
+    <input autocapitalize="none" id="userInput" autocomplete="username"
+           type="text" name="{{autenticacion.pagina?nombresCampos[0]:'user'}}" class="form-control"
+           placeholder="{{autenticacion.pagina?nombresCampos[2]:'Usuario'}}" autofocus required>
+</div>
+<div class="input-group form-group" ng-class="">
+    <div class="input-group-addon"><i class="fa fa-key"></i></div>
+    <input id="userPass" type="password"
+           name="{{autenticacion.pagina?nombresCampos[1]:'password'}}" class="form-control"
+           placeholder="{{autenticacion.pagina?nombresCampos[3]:'Clave'}}"
+           required>
+</div>                                            
+                                            <div class="input-group form-group checkbox-group-validacion-inscripcion col-xs-12">
+
+    <div class="row">
+
+        <div class="form-check col-md-4 ">
+            <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" id="checkboxSeleccionarTodos">
+                Omitir Todos            </label>
+        </div>
+
+        <div class="form-check col-md-4 " data-toggle="tooltip" data-placement="top"
+             title="{{toolTips['userValidarFechasInscPersona'] | translate}}">
+            <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" name="validarFechasInscPersona"
+                       id="userValidarFechasInscPersona">
+                Omitir Límite Fechas de Inscripción            </label>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="panel panel-shadow">
+            <header class="panel-heading" style="padding:0 10px">
+                <a data-toggle="collapse" href="#collapseOne"><i class="collapse-caret fa fa-angle-down"></i>
+                    Reglas Avanzadas</a>
+            </header>
+            <div id="collapseOne" class="panel-collapse collapse">
+                <div class="panel-body">
+
+                    <h4>Reglas Generales Inscripcion Formulario</h4>
+
+                    <div class="row">
+
+                        <div class="form-check col-md-4 " data-toggle="tooltip" data-placement="top"
+                             title="{{toolTips['userValidarReglasNombre'] | translate}}">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="validarReglasNombre"
+                                       id="userValidarReglasNombre">
+                                Omitir Reglas para el Nombre                            </label>
+                        </div>
+
+                        <div class="form-check col-md-4 " data-toggle="tooltip" data-placement="top"
+                             title="{{toolTips['userValidarMaxParticipacionesOrganizaciones'] | translate}}">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox"
+                                       name="validarMaxParticipacionesOrganizaciones"
+                                       id="userValidarMaxParticipacionesOrganizaciones">
+                                Omitir Límite de Participaciones en Organizaciones                            </label>
+                        </div>
+
+                        <div class="form-check col-md-4 " data-toggle="tooltip" data-placement="top"
+                             title="{{toolTips['userValidarEstadoPersona'] | translate}}">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="validarEstadoPersona"
+                                       id="userValidarEstadoPersona">
+                                Omitir Estado de la Persona                            </label>
+                        </div>
+
+                    </div>
+
+                    <h4>Reglas Generales Inscripcion Deportista</h4>
+
+                    <div class="form-check" data-toggle="tooltip" data-placement="top"
+                         title="{{toolTips['userValidarReglasPruebaCampeonato'] | translate}}">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" name="validarReglasPruebaCampeonato"
+                                   id="userValidarReglasPruebaCampeonato">
+                            Omitir Reglas de la Prueba Campeonato                        </label>
+                    </div>
+
+                    <div class="form-check" data-toggle="tooltip" data-placement="top"
+                         title="{{toolTips['userValidarMaximoPersonasEnDeporte'] | translate}}">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" name="validarMaximoPersonasEnDeporte"
+                                   id="userValidarMaximoPersonasEnDeporte">
+                            Omitir Máximo de Personas inscritas en Deporte                        </label>
+                    </div>
+
+                    <h4>Reglas Cambios Deportistas</h4>
+
+                    <div class="form-check" data-toggle="tooltip" data-placement="top"
+                         title="{{toolTips['userValidarCuposPorDeporte'] | translate}}">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" name="validarCuposPorDeporte"
+                                   id="userValidarCuposPorDeporte">
+                            Omitir Cupos por Deporte para Cambios                        </label>
+                    </div>
+
+                    <h4>Reglas Generales Inscripción Personal Apoyo</h4>
+
+                    <div class="form-check" data-toggle="tooltip" data-placement="top"
+                         title="{{toolTips['userValidarCuposParaPersonalApoyo'] | translate}}">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" name="validarCuposParaPersonalApoyo"
+                                   id="userValidarCuposParaPersonalApoyo">
+                            Omitir Cupos para Personal de APoyo                        </label>
+                    </div>
+
+                    <h4>Reglas Generales Inscripción Equipos</h4>
+
+                    <div class="row">
+
+                        <div class="form-check col-md-4 checkbox-group-validacion-fecha" data-toggle="tooltip" data-placement="top"
+                             title="{{toolTips['userValidarFechasInscripcionEquipo'] | translate}}">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="validarFechasInscripcionEquipo"
+                                       id="userValidarFechasInscripcionEquipo">
+                                Omitir Fechas Inscripción de Equipo                            </label>
+                        </div>
+
+                        <div class="form-check col-md-4 " data-toggle="tooltip" data-placement="top"
+                             title="{{toolTips['userValidarCupoEnPruebaParaEquipo'] | translate}}">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="validarCupoEnPruebaParaEquipo"
+                                       id="userValidarCupoEnPruebaParaEquipo">
+                                Omitir Cupos en Prueba de Equipos                            </label>
+                        </div>
+
+                        <div class="form-check col-md-4 " data-toggle="tooltip" data-placement="top"
+                             title="{{toolTips['userValidarMaxCompetidoresEnPruebaEquipos'] | translate}}">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox"
+                                       name="validarMaxCompetidoresEnPruebaEquipos"
+                                       id="userValidarMaxCompetidoresEnPruebaEquipos">
+                                Omitir Límite de Competidores en Prueba de Equipos                            </label>
+                        </div>
+
+                    </div>
+
+                    <h4>Reglas Inscripción de Roles Personal Apoyo</h4>
+
+                    <div class="row">
+
+                        <div class="form-check col-md-4 " data-toggle="tooltip" data-placement="top"
+                             title="{{toolTips['userValidarDeporteRol'] | translate}}">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="validarDeporteRol"
+                                       id="userValidarDeporteRol">
+                                Omitir Deporte Asociado a Rol                            </label>
+                        </div>
+
+                        <div class="form-check col-md-4 " data-toggle="tooltip" data-placement="top"
+                             title="{{toolTips['userValidarEstadoPersonalApoyo'] | translate}}">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="validarEstadoPersonalApoyo"
+                                       id="userValidarEstadoPersonalApoyo">
+                                Omitir Estado Personal Apoyo                            </label>
+                        </div>
+
+                        <div class="form-check col-md-4 checkbox-group-validacion-fecha" data-toggle="tooltip" data-placement="top"
+                             title="{{toolTips['userValidarFechasInscPersonalApoyo'] | translate}}">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="validarFechasInscPersonalApoyo"
+                                       id="userValidarFechasInscPersonalApoyo">
+                                Omitir Fechas Limite Inscripción Personal Apoyo                            </label>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="form-check col-md-4 " data-toggle="tooltip" data-placement="top"
+                             title="{{toolTips['userValidarCuposPersonalApoyoDeporte'] | translate}}">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="validarCuposPersonalApoyoDeporte"
+                                       id="userValidarCuposPersonalApoyoDeporte">
+                                Omitir Cupos para Personal de Apoyo en Deporte                            </label>
+                        </div>
+
+                        <div class="form-check col-md-4 " data-toggle="tooltip" data-placement="top"
+                             title="{{toolTips['userValidarSinRolReservadoOrganizacion'] | translate}}">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox"
+                                       name="validarSinRolReservadoOrganizacion"
+                                       id="userValidarSinRolReservadoOrganizacion">
+                                Omitir Sin Rol Reservado para Organización                            </label>
+                        </div>
+
+                    </div>
+
+                    <h4>Reglas Generales Pruebas</h4>
+
+                    <div class="row">
+
+                        <div class="form-check col-md-4 " data-toggle="tooltip" data-placement="top"
+                             title="{{toolTips['userValidarParticipacionDelegadoEnOrganizacion'] | translate}}">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox"
+                                       name="validarParticipacionDelegadoEnOrganizacion"
+                                       id="userValidarParticipacionDelegadoEnOrganizacion">
+                                Omitir Delegado en Organización                            </label>
+                        </div>
+
+                        <div class="form-check col-md-4 " data-toggle="tooltip" data-placement="top"
+                             title="{{toolTips['userValidarEstado'] | translate}}">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="validarEstado"
+                                       id="userValidarEstado">
+                                Omitir Estado Deportista                            </label>
+                        </div>
+
+                        <div class="form-check col-md-4 checkbox-group-validacion-fecha" data-toggle="tooltip" data-placement="top"
+                             title="{{toolTips['userValidarFechasInscripcion'] | translate}}">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="validarFechasInscripcion"
+                                       id="userValidarFechasInscripcion">
+                                Omitir Fechas Inscripción                            </label>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="form-check col-md-4 " data-toggle="tooltip" data-placement="top"
+                             title="{{toolTips['userValidarNumeroPruebas'] | translate}}">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="validarNumeroPruebas"
+                                       id="userValidarNumeroPruebas">
+                                Omitir Número de Pruebas Deportista                            </label>
+                        </div>
+
+                        <div class="form-check col-md-4 " data-toggle="tooltip" data-placement="top"
+                             title="{{toolTips['userValidarNumeroDeportes'] | translate}}">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="validarNumeroDeportes"
+                                       id="userValidarNumeroDeportes">
+                                Omitir Número de Deportes Deportista                            </label>
+                        </div>
+
+                        <div class="form-check col-md-4 " data-toggle="tooltip" data-placement="top"
+                             title="{{toolTips['userValidarNumeroMarcas'] | translate}}">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="validarNumeroMarcas"
+                                       id="userValidarNumeroMarcas">
+                                Omitir Número de Marcas Deportista                            </label>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="form-check col-md-4 " data-toggle="tooltip" data-placement="top"
+                             title="{{toolTips['userValidarRestriccionesPruebas'] | translate}}">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="validarRestriccionesPruebas"
+                                       id="userValidarRestriccionesPruebas">
+                                Omitir Restricciones de las Pruebas                            </label>
+                        </div>
+
+                        <div class="form-check col-md-4 " data-toggle="tooltip" data-placement="top"
+                             title="{{toolTips['userValidarRestriccionesCategorias'] | translate}}">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="validarRestriccionesCategorias"
+                                       id="userValidarRestriccionesCategorias">
+                                Omitir Restricciones de las Categorías                            </label>
+                        </div>
+
+                        <div class="form-check col-md-4 " data-toggle="tooltip" data-placement="top"
+                             title="{{toolTips['userValidarCupos'] | translate}}">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="validarCupos"
+                                       id="userValidarCupos">
+                                Omitir Cupos                            </label>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="form-check col-md-4 " data-toggle="tooltip" data-placement="top"
+                             title="{{toolTips['userValidarCambiosEnPruebaCampeonato'] | translate}}">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox"
+                                       name="validarCambiosEnPruebaCampeonato"
+                                       id="userValidarCambiosEnPruebaCampeonato">
+                                Omitir Cambios en prueba                            </label>
+                        </div>
+
+                        <div class="form-check col-md-4 " data-toggle="tooltip" data-placement="top"
+                             title="{{toolTips['userValidarEliminarCertificadoDePrueba'] | translate}}">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox"
+                                       name="validarEliminarCertificadoDePrueba"
+                                       id="userValidarEliminarCertificadoDePrueba">
+                                Omitir Validación eliminar certificado                            </label>
+                        </div>
+
+                    </div>
+
+                    <h4>Reglas Pruebas Individuales</h4>
+
+                    <div class="row">
+
+                        <div class="form-check col-md-4 " data-toggle="tooltip" data-placement="top"
+                             title="{{toolTips['userValidarNumeroPruebasInd'] | translate}}">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="validarNumeroPruebasInd"
+                                       id="userValidarNumeroPruebasInd">
+                                Omitir Número de Pruebas Individuales                            </label>
+                        </div>
+
+                        <div class="form-check col-md-4 " data-toggle="tooltip" data-placement="top"
+                             title="{{toolTips['userValidarSobrelapado'] | translate}}">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="validarSobrelapado"
+                                       id="userValidarSobrelapado">
+                                Omitir Participaciones en Pruebas Sobrelapadas                            </label>
+                        </div>
+
+                        <div class="form-check col-md-4 " data-toggle="tooltip" data-placement="top"
+                             title="{{toolTips['userValidarInscPruebasCampeonatoPorCicloPrueba'] | translate}}">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox"
+                                       name="validarInscPruebasCampeonatoPorCicloPrueba"
+                                       id="userValidarInscPruebasCampeonatoPorCicloPrueba">
+                                Omitir Participaciones en Pruebas Campeonato por Ciclo                            </label>
+                        </div>
+
+                        <div class="form-check col-md-4 " data-toggle="tooltip" data-placement="top"
+                             title="{{toolTips['userValidarCantidadPruebasPorJornadaCertamen'] | translate}}">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox"
+                                       name="validarCantidadPruebasPorJornadaCertamen"
+                                       id="userValidarCantidadPruebasPorJornadaCertamen">
+                                Omitir Participaciones en Pruebas Campeonato por Jornada de Certamen                            </label>
+                        </div>
+
+                    </div>
+
+                    <h4>Reglas Pruebas Grupales</h4>
+
+                    <div class="row">
+
+                        <div class="form-check col-md-4 " data-toggle="tooltip" data-placement="top"
+                             title="{{toolTips['userValidarNumeroPruebasGrp'] | translate}}">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="validarNumeroPruebasGrp"
+                                       id="userValidarNumeroPruebasGrp">
+                                Omitir Número de Pruebas Grupales                            </label>
+                        </div>
+
+                        <div class="form-check col-md-4 " data-toggle="tooltip" data-placement="top"
+                             title="{{toolTips['userValidarUnicoEnPruebaPorEquipo'] | translate}}">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="validarUnicoEnPruebaPorEquipo"
+                                       id="userValidarUnicoEnPruebaPorEquipo">
+                                Omitir Único en Equipo por Prueba                            </label>
+                        </div>
+
+                        <div class="form-check col-md-4 " data-toggle="tooltip" data-placement="top"
+                             title="{{toolTips['userValidarReglasParticipante'] | translate}}">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="validarReglasParticipante"
+                                       id="userValidarReglasParticipante">
+                                Omitir Reglas para el Participante                            </label>
+                        </div>
+
+                        <div class="form-check col-md-4 " data-toggle="tooltip" data-placement="top"
+                             title="{{toolTips['userValidarClasificacionFuncional'] | translate}}">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="validarClasificacionFuncional"
+                                       id="userValidarClasificacionFuncional">
+                                Omitir Validación de Clasificación Funcional                            </label>
+                        </div>
+
+                        <div class="form-check col-md-4 " data-toggle="tooltip" data-placement="top"
+                             title="{{toolTips['userValidarFormularioConSede'] | translate}}">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="userValidarFormularioConSede"
+                                       id="userValidarFormularioConSede">
+                                Omitir Validación de Formulario Con Sede                            </label>
+                        </div>
+
+                    </div>
+
+                    <h4>Reglas Turnos Práctica Libre</h4>
+
+                    <div class="row">
+                        <div class="form-check col-md-4 " data-toggle="tooltip" data-placement="top"
+                             title="{{toolTips['userValidarTiempoReservaPosteriorTurno'] | translate}}">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="userValidarTiempoReservaPosteriorTurno"
+                                       id="userValidarTiempoReservaPosteriorTurno">
+                                Omitir Validación de Reservas en Horario Posterior                            </label>
+                        </div>
+                    </div>
+
+                    <h4>Reglas Planes Afiliación</h4>
+
+                    <div class="row">
+                        <div class="form-check col-md-4 " data-toggle="tooltip" data-placement="top"
+                             title="{{toolTips['userValidarTiempoSuscripcionInicioPasado'] | translate}}">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="userValidarTiempoSuscripcionInicioPasado"
+                                       id="userValidarTiempoSuscripcionInicioPasado">
+                                Omitir Validación de Suscripciones con Inicio en Pasado                            </label>
+                        </div>
+
+                        <div class="form-check col-md-4 " data-toggle="tooltip" data-placement="top"
+                             title="{{toolTips['userValidarTiempoSuscripcionAFuturo'] | translate}}">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="userValidarTiempoSuscripcionAFuturo"
+                                       id="userValidarTiempoSuscripcionAFuturo">
+                                Omitir Validación de Compra de Plan en Futuro Superior al Límite                            </label>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- //panel-body -->
+            </div>
+            <!-- //panel-collapse -->
+        </div>
+    </div>
+    
+    
+    
+
+</div>
+
+<script  nonce="ac26a9245854e82149694567c56d876c">
+
+    // Para obtener la funcion que actualiza los datos para
+    // el login
+    var getUpdateSesion = function ($scope) {
+
+        $scope.toolTips = {
+            userValidarParticipacionDelegadoEnOrganizacion: 'Active esta opción para permitir que si posee rol de ' +
+                                                            'delegado, la organización pueda ser distinta a la de la ' +
+                                                            'inscripción',
+            userValidarEstado:                              'Active esta opción para permitir inscripciones a pruebas de deportistas retirados o aprobados',
+            userValidarFechasInscripcion:                   'Active esta opción para permitir inscripciones por fuera del plazo fijado en el ciclo',
+            userValidarNumeroPruebas:                       'Active esta opción para no verificar el número de pruebas totales en las que está ' +
+                                                            'participando el deportista',
+            userValidarNumeroDeportes:                      'Active esta opción para no verificar el número de deportes en los que participa ' +
+                                                            'el deportista',
+            userValidarNumeroMarcas:                        'Active esta opción para no verificar que el deportista cumpla con las marcas según ' +
+                                                            'las reglas del evento',
+            userValidarRestriccionesPruebas:                'Active esta opción para ignorar las restricciones y reglas propias de la prueba ' +
+                                                            'campeonato, si las tiene',
+            userValidarRestriccionesCategorias:             'Active esta opción para ignorar las restricciones de categoría que apliquen para ' +
+                                                            'la prueba campeonato',
+            userValidarCupos:                               'Active esta opción para no verificar los cupos para una regional y para la organización',
+            userValidarNumeroPruebasInd:                    'Active esta opción para no verificar el número de pruebas individuales en las ' +
+                                                            'que está participando el deportista para el deporte',
+            userValidarSobrelapado:                         'Active esta opción para permitir que las reservas de la prueba se solapen con ' +
+                                                            'las de otras pruebas',
+            userValidarInscPruebasCampeonatoPorCicloPrueba: 'Active esta opción para no validar que la cantidad de ' +
+                                                            'pruebas campeonato por ciclo sea menor a la configurada para el sistema',
+            userValidarCantidadPruebasPorJornadaCertamen:   'Active esta opción para no validar que la cantidad de ' +
+                                                            'pruebas campeonato por fase de jornada certamen sea menor a la configurada para el sistema',
+            userValidarNumeroPruebasGrp:                    'Active esta opción para permitir que el deportista participe en más pruebas ' +
+                                                            'grupales que las que permite el deporte en el evento',
+            userValidarReglasParticipante:                  'Active esta opción para evitar evaluar las reglas del evento de una ' +
+                                                            'participación',
+            userValidarUnicoEnPruebaPorEquipo:              'Active esta opción para permitir participaciones en más de un equipo ' +
+                                                            'para una misma prueba',
+            userValidarFechasInscripcionEquipo:             'Active esta opción para no verificar las fechas para realizar la ' +
+                                                            'inscripción según el cupo, la participación y la regional de la organización, en ese orden',
+            userValidarCupoEnPruebaParaEquipo:              'Active esta opción para no verificar que haya cupo en la prueba para un ' +
+                                                            'nuevo equipo de la organización',
+            userValidarMaxCompetidoresEnPruebaEquipos:      'Active esta opción para ignorar el límite de participantes ' +
+                                                            'permitidos en la prueba',
+            userValidarDeporteRol:                          'Active esta opción para ignorar la obligatoriedad del deporte para un rol',
+            userValidarEstadoPersonalApoyo:                 'Active esta opción para permitir inscripciones a pruebas de personal apoyo ' +
+                                                            'retirado o aprobado',
+            userValidarFechasInscPersonalApoyo:             'Active esta opción para no verificar las fechas sólo si no hace parte ' +
+                                                            'del evento',
+            userValidarCuposPersonalApoyoDeporte:           'Active esta opción para no verificar el número de cupos de personal ' +
+                                                            'de apoyo para el deporte',
+            userValidarSinRolReservadoOrganizacion:         'Active esta opción para permitir que el rol reservado se le pueda ' +
+                                                            'dar a alguien de la organización',
+            userValidarReglasPruebaCampeonato:              'Active esta opción para evitar las reglas de la prueba campeonato ' +
+                                                            'concernientes al ciclo y a los campos restringidos por la prueba',
+            userValidarReglasNombre:                        'Active esta opción para ignorar si el nombre de la persona existe',
+            userValidarMaxParticipacionesOrganizaciones:    'Active esta opción para permitir que la persona participe en ' +
+                                                            'más organizaciones de las que puede',
+            userValidarEstadoPersona:                       'Active esta opción para permitir inscripciones de personas retiradas o aprobadas',
+            userValidarFechasInscPersona:                   'Active esta opción para no verificar las fechas para realizar la inscripción',
+            userValidarCuposPorDeporte:                     'Active esta opción para no verificar los cupos para una regional y para la ' +
+                                                            'organización',
+            userValidarCuposParaPersonalApoyo:              'Active esta opción para no verificar que haya cupo para mas personal de ' +
+                                                            'apoyo',
+            userValidarClasificacionFuncional:              'Active esta opción para no validar la clasificación funcional de un participante ' +
+                                                            'al inscribirse en una prueba o equipo',
+            userValidarMaximoPersonasEnDeporte:             'Active esta opción para no validar la máxima cantidad de personas permitidas en el deporte',
+            userValidarFormularioConSede:                   'Active esta opción para no validar la obligatoriedad de campos del formulario al adquirir servicios en una sede específica',
+            userValidarTiempoReservaPosteriorTurno:         'Active está opción para permitir reservas de turnos de práctica libre que ya iniciaron',
+            userValidarTiempoSuscripcionInicioPasado:       'Active está opción para permitir realizar compra de planes indicando una fecha de inicio de servicio en pasado',
+            userValidarTiempoSuscripcionAFuturo:            'Active está opción para permitir realizar compra de planes indicando una fecha de inicio superior al límite en definido',
+            userValidarEliminarCertificadoDePrueba:         'Activa esta opción para omitir la validación al eliminar el certificado de una prueba a un deportista',
+            userValidarCambiosEnPruebaCampeonato:           'Activa esta opción para omitir la validación cuando se cambie alguna característica de la prueba campeonato y haya deportistas inscritos'
+        };
+
+        var f = function () {
+
+            $scope.sesion = {
+                usuario:            $('#userInput').val(),
+                password:           $('#userPass').val(),
+                reglas_inscripcion: {
+                    1:  !$('#userValidarParticipacionDelegadoEnOrganizacion').prop('checked'),
+                    2:  !$('#userValidarEstado').prop('checked'),
+                    3:  !$('#userValidarFechasInscripcion').prop('checked'),
+                    4:  !$('#userValidarNumeroPruebas').prop('checked'),
+                    5:  !$('#userValidarNumeroDeportes').prop('checked'),
+                    6:  !$('#userValidarNumeroMarcas').prop('checked'),
+                    7:  !$('#userValidarRestriccionesPruebas').prop('checked'),
+                    8:  !$('#userValidarRestriccionesCategorias').prop('checked'),
+                    9:  !$('#userValidarCupos').prop('checked'),
+                    10: !$('#userValidarNumeroPruebasInd').prop('checked'),
+                    11: !$('#userValidarSobrelapado').prop('checked'),
+                    12: !$('#userValidarInscPruebasCampeonatoPorCicloPrueba').prop('checked'),
+                    13: !$('#userValidarNumeroPruebasGrp').prop('checked'),
+                    14: !$('#userValidarUnicoEnPruebaPorEquipo').prop('checked'),
+                    15: !$('#userValidarFechasInscripcionEquipo').prop('checked'),
+                    16: !$('#userValidarCupoEnPruebaParaEquipo').prop('checked'),
+                    17: !$('#userValidarMaxCompetidoresEnPruebaEquipos').prop('checked'),
+                    18: !$('#userValidarDeporteRol').prop('checked'),
+                    19: !$('#userValidarEstadoPersonalApoyo').prop('checked'),
+                    20: !$('#userValidarFechasInscPersonalApoyo').prop('checked'),
+                    21: !$('#userValidarCuposPersonalApoyoDeporte').prop('checked'),
+                    22: !$('#userValidarSinRolReservadoOrganizacion').prop('checked'),
+                    23: !$('#userValidarReglasPruebaCampeonato').prop('checked'),
+                    24: !$('#userValidarReglasNombre').prop('checked'),
+                    25: !$('#userValidarMaxParticipacionesOrganizaciones').prop('checked'),
+                    26: !$('#userValidarEstadoPersona').prop('checked'),
+                    27: !$('#userValidarFechasInscPersona').prop('checked'),
+                    28: !$('#userValidarCuposPorDeporte').prop('checked'),
+                    29: !$('#userValidarCuposParaPersonalApoyo').prop('checked'),
+                    30: !$('#userValidarReglasParticipante').prop('checked'),
+                    31: !$('#userValidarClasificacionFuncional').prop('checked'),
+                    32: !$('#userValidarCantidadPruebasPorJornadaCertamen').prop('checked'),
+                    33: !$('#userValidarMaximoPersonasEnDeporte').prop('checked'),
+                    34: !$('#userValidarFormularioConSede').prop('checked'),
+                    35: !$('#userValidarTiempoReservaPosteriorTurno').prop('checked'),
+                    36: !$('#userValidarTiempoSuscripcionInicioPasado').prop('checked'),
+                    37: !$('#userValidarEliminarCertificadoDePrueba').prop('checked'),
+                    38: !$('#userValidarCambiosEnPruebaCampeonato').prop('checked'),
+                    42: !$('#userValidarTiempoSuscripcionAFuturo').prop('checked'),
+                }
+            };
+
+            // PAra redirecciones con ciertas url con # (para angular)
+            if (location.hash)
+                $scope.sesion.real_href = location.href;
+        };
+
+        return f;
+
+    };
+
+    function alternarCheckboxesValidacionInscripcion(valor) {
+
+        var checkboxes = $(".checkbox-group-validacion-inscripcion input[type='checkbox']");
+
+        for (var i = 0; i < checkboxes.length; ++i) {
+            checkboxes[i].checked = valor;
+        }
+    }
+
+    function activarCheckboxesFecha(valor, selector) {
+
+      var checkboxesFecha = $(selector);
+
+      for (var i = 0; i < checkboxesFecha.length; ++i) {
+        checkboxesFecha[i].checked = valor;
+      }
+    }
+
+    
+    
+    $('#userValidarFechasInscPersona').change(function () {
+
+      activarCheckboxesFecha($(this).is(':checked'),
+        ".checkbox-group-validacion-fecha input[type='checkbox']");
+    });
+
+    $('#checkboxSeleccionarTodos').change(function () {
+
+        alternarCheckboxesValidacionInscripcion($(this).is(':checked'),
+          ".checkbox-group-validacion-inscripcion input[type='checkbox']");
+    });
+
+</script>
+                                            <button class="btn btn-lg btn-theme-inverse btn-block" ng-disabled="false"
+                                                    disabled type="submit"
+                                                    id="sign-in">Entrar</button>
+                                        </section>
+
+                                    </form>
+                                </div>
+
+                            </div>
+                            <!-- //account-wall-->
+
+                        </div>
+                        <!-- //col-sm-6 col-md-4 col-md-offset-4-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script nonce="ac26a9245854e82149694567c56d876c">
+
+    $("#modal-cambiar-a-superadmin").on('click', function () {
+
+        if (!angular.element(document.querySelector('#LoginApp')).scope())
+            angular.bootstrap($('#LoginApp'), ['LoginApp']);
+
+        $('body').addClass('lockscreen');
+        $("#LoginApp").modal('toggle');
+        $("#LoginApp").on('hide.bs.modal', function (e) {
+            $('body').removeClass('lockscreen');
+        });
+
+    });
+
+</script>
+
+
+
+
+<!-- FIN -->
+<script nonce="ac26a9245854e82149694567c56d876c">
+    setTimeout(function () {
+        ljs.load('livicons');//lo mas tarde posible
+    }, 5000);
+    control_sesiones = {
+        url_reset: '/sesiones/session/reset',
+    }
+</script>
+
+<div id="sfWebDebug"></div>
+<a href="#menu" class="toggle-menu"></a>
+
+<div id="hercules-idle" ng-controller="IdleCtrl"></div>
+
+<!---
+  ////// Modales ///////////
+--->
+
+<div id="md-messages" class="modal fade md-slideUp bg-theme-inverse" tabindex="-1" style="width:450px;">
+    <div class="modal-content" style="padding:0; border: 0">
+    </div>
+</div>
+
+<div id="md-notification" class="modal fade md-stickTop bg-info" tabindex="-1"
+     style="width:500px">
+    <div class="modal-content" style="padding:0; border: 0">
+    </div>
+</div>
+
+
+<script type="text/javascript" src="/V_0000000/js/components/jQuery.mmenu/src/js/jquery.mmenu.min.js" nonce="ac26a9245854e82149694567c56d876c"></script>
+<script type="text/javascript" src="/V_0000000/js/components/jQuery.mmenu/src/js/addons/jquery.mmenu.dragopen.min.js" nonce="ac26a9245854e82149694567c56d876c"></script>
+<script type="text/javascript" src="/V_0000000/js/components/jQuery.mmenu/src/js/addons/jquery.mmenu.searchfield.min.js" nonce="ac26a9245854e82149694567c56d876c"></script>
+<script type="text/javascript" src="/V_3/js/menu.js" nonce="ac26a9245854e82149694567c56d876c"></script>
+
+</body>
+</html>
+
+
