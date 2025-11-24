@@ -9,6 +9,7 @@ class CompensarAPI:
     
     def __init__(self, session: requests.Session):
         self.session = session
+        self.participantes_data = []
     
     def get_tiqueteras(self) -> List[Tiquetera]:
         """
@@ -155,6 +156,7 @@ class CompensarAPI:
                     data_dep = resp_dep.json()
                     if data_dep.get('personas') and len(data_dep['personas']) > 0:
                         participantes_data = data_dep['personas']
+                        self.participantes_data = participantes_data
                 except:
                     pass
             
@@ -165,10 +167,11 @@ class CompensarAPI:
                 "participantes": participantes_data,
                 "inicioInmediato": False,
                 "turnosSeguidos": 1,
-                "idCentro": tiquetera.id_centro if tiquetera.id_centro else tiquetera.id_centro_entrenamiento
+                "idCentro": tiquetera.id_centro if tiquetera.id_centro else tiquetera.id_centro_entrenamiento,
+                "fecha": fecha  # Agregamos la fecha
             }
             
-            print(f"   📡 Consultando horarios con POST")
+            print(f"   📡 Consultando horarios con POST: {payload}")
             response = self.session.post(
                 f"{Config.API_BASE_URL}{Config.SCHEDULE_ENDPOINT}",
                 json=payload,
@@ -180,23 +183,80 @@ class CompensarAPI:
             )
             
             if response.status_code != 200:
+                print(f"❌ Error API Horarios ({response.status_code}): {response.text}")
                 raise Exception(f"Error al obtener horarios: {response.status_code}")
             
             data = response.json()
+            print(f"   📥 Respuesta Horarios: {str(data)[:500]}...") # Debug respuesta
+            
             horarios = []
             
-            # El formato exacto depende de la respuesta de la API
-            # Ajustar según la estructura real
-            for h in data.get('horarios', []):
-                horario = Horario(
-                    fecha=fecha,
-                    hora_inicio=h.get('hora_inicio'),
-                    hora_fin=h.get('hora_fin'),
-                    cupos_disponibles=h.get('cupos_disponibles', 0),
-                    id_turno=h.get('id_turno')
-                )
-                if horario.cupos_disponibles > 0:
-                    horarios.append(horario)
+            # Parsear respuesta compleja
+            # Estructura: { "YYYY-MM-DD": { "HH:MM - HH:MM": { "ID": { ... } } } }
+            
+            horarios_fecha = data.get(fecha, {})
+            if not horarios_fecha and isinstance(data, dict):
+                # Intentar buscar la fecha en las claves
+                for k in data.keys():
+                    if k == fecha:
+                        horarios_fecha = data[k]
+                        break
+            
+            for rango_horario, detalles in horarios_fecha.items():
+                try:
+                    # rango_horario es tipo "06:00 - 07:00"
+                    partes = rango_horario.split(' - ')
+                    if len(partes) != 2:
+                        continue
+                        
+                    hora_inicio = partes[0].strip()
+                    hora_fin = partes[1].strip()
+                    
+                    # Iterar sobre los detalles (pueden haber múltiples zonas/IDs)
+                    for id_zona, info in detalles.items():
+                        if not isinstance(info, dict):
+                            continue
+                            
+                        cupos = info.get('conteo', 0)
+                        total_turnos = info.get('totalTurnos', 0)
+                        
+                        # ID del turno para reservar
+                        # Preferimos 'ids' (numérico) o 'turnos' (string)
+                        id_turno = None
+                        if info.get('ids') and len(info['ids']) > 0:
+                            id_turno = info['ids'][0]
+                        elif info.get('turnos') and len(info['turnos']) > 0:
+                            id_turno = info['turnos'][0]
+                            
+                        # Intentar obtener el nombre de la clase
+                        nombre_clase = ""
+                        caracteristicas = info.get('caracteristicas', {})
+                        # El ID de la característica suele coincidir con el id_zona (la clave del dict superior)
+                        if id_zona in caracteristicas:
+                            nombre_clase = caracteristicas[id_zona].get('nombre', '')
+                        else:
+                            # Si no coincide, tomamos el primero que encontremos
+                            for k, v in caracteristicas.items():
+                                if isinstance(v, dict) and 'nombre' in v:
+                                    nombre_clase = v['nombre']
+                                    break
+                            
+                        horario = Horario(
+                            fecha=fecha,
+                            hora_inicio=hora_inicio,
+                            hora_fin=hora_fin,
+                            cupos_disponibles=cupos,
+                            id_turno=id_turno,
+                            nombre_clase=nombre_clase,
+                            raw_data=info
+                        )
+                        
+                        # Solo agregar si hay cupos o si queremos mostrar todo
+                        horarios.append(horario)
+                        
+                except Exception as e:
+                    print(f"⚠️ Error parseando horario {rango_horario}: {e}")
+                    continue
             
             print(f"✅ Se encontraron {len(horarios)} horarios disponibles")
             return horarios
@@ -221,11 +281,47 @@ class CompensarAPI:
         try:
             print(f"📅 Reservando: {reserva}...")
             
-            payload = reserva.to_api_payload()
+            # Construir payload complejo requerido por Compensar
+            if not reserva.horario.raw_data:
+                print("❌ Error: No hay datos crudos del horario para realizar la reserva")
+                return False
+                
+            # Obtener datos del centro/escenario desde el raw_data del horario
+            centro_info = reserva.horario.raw_data.get('centroEntrenamiento', {})
+            id_centro = centro_info.get('id', reserva.tiquetera.id_centro)
+            id_escenario = centro_info.get('idEscenario', reserva.tiquetera.id_escenario)
+            
+            # Usar participantes cacheados o intentar obtenerlos si no existen
+            participantes = self.participantes_data
+            if not participantes:
+                print("⚠️ No hay participantes cacheados, intentando obtenerlos...")
+                # Aquí podríamos llamar a un método para obtener participantes si fuera necesario
+                # Por ahora usaremos una lista vacía o lo que tenga la tiquetera
+                pass
+
+            payload = {
+                "idTiquetera": reserva.tiquetera.id_tiquetera if reserva.tiquetera.id_tiquetera else reserva.tiquetera.id,
+                "arregloTurnos": {"1": 1},
+                "horario": reserva.horario.raw_data,
+                "idEscenario": id_escenario,
+                "idCentro": id_centro,
+                "participantes": participantes,
+                "turnosSeguidos": 1
+            }
+            
+            # Debug payload (truncado)
+            import json
+            payload_str = json.dumps(payload)
+            print(f"   📦 Payload Reserva: {payload_str[:200]}...")
             
             response = self.session.post(
-                f"{Config.API_BASE_URL}{Config.BOOKING_ENDPOINT}",
-                json=payload
+                f"{Config.API_BASE_URL}{Config.BOOKING_ENDPOINT}", # '/sistema.php/entrenamiento/reserva/guardar'
+                json=payload,
+                params={'autenticador': 'compensar'},
+                headers={
+                    'Content-Type': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
             )
             
             if response.status_code == 200:
@@ -236,9 +332,11 @@ class CompensarAPI:
                 else:
                     error_msg = result.get('mensaje', 'Error desconocido')
                     print(f"❌ Error en reserva: {error_msg}")
+                    print(f"   Respuesta completa: {result}")
                     return False
             else:
                 print(f"❌ Error HTTP {response.status_code} al realizar reserva")
+                print(f"   Respuesta: {response.text}")
                 return False
                 
         except Exception as e:

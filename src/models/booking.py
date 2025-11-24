@@ -30,9 +30,11 @@ class Horario:
     hora_fin: str
     cupos_disponibles: int
     id_turno: Optional[int] = None
+    nombre_clase: str = ""
+    raw_data: dict = None
     
     def __str__(self):
-        return f"{self.fecha} {self.hora_inicio}-{self.hora_fin} ({self.cupos_disponibles} cupos)"
+        return f"{self.fecha} {self.hora_inicio}-{self.hora_fin} - {self.nombre_clase} ({self.cupos_disponibles} cupos)"
 
 
 @dataclass
