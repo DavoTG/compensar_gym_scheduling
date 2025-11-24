@@ -1,0 +1,323 @@
+{
+  "tiqueteras": [
+    {
+      "id": 1,
+      "nombre": "Clase grupal Calle 94",
+      "nombre_centro_entrenamiento": "Calle 94",
+      "nombre_sede": "Salones Calle 94",
+      "nombre_deporte": "Acondicionamiento",
+      "ilimitado": false,
+      "entradas": 10,
+      "id_centro_entrenamiento": 1,
+      "id_participacion_deportista": 4626802
+    },
+    {
+      "id": 2,
+      "nombre": "Clase grupal Cajicá",
+      "nombre_centro_entrenamiento": "Cajicá",
+      "nombre_sede": "Salones Cajicá",
+      "nombre_deporte": "Acondicionamiento",
+      "ilimitado": false,
+      "entradas": 10,
+      "id_centro_entrenamiento": 2,
+      "id_participacion_deportista": 4626802
+    },
+    {
+      "id": 3,
+      "nombre": "Gimnasio CBI - Carrera 60",
+      "nombre_centro_entrenamiento": "CBI - Carrera 60",
+      "nombre_sede": "Gimnasio CBI - Cra 60",
+      "nombre_deporte": "Acondicionamiento",
+      "ilimitado": false,
+      "entradas": 10,
+      "id_centro_entrenamiento": 3,
+      "id_participacion_deportista": 4626802
+    },
+    {
+      "id": 4,
+      "nombre": "Clase grupal CBI - Carrera 60",
+      "nombre_centro_entrenamiento": "CBI - Carrera 60",
+      "nombre_sede": "Salones CBI - Cra 60",
+      "nombre_deporte": "Acondicionamiento",
+      "ilimitado": false,
+      "entradas": 10,
+      "id_centro_entrenamiento": 4,
+      "id_participacion_deportista": 4626802
+    },
+    {
+      "id": 5,
+      "nombre": "Clase grupal Online",
+      "nombre_centro_entrenamiento": "Online",
+      "nombre_sede": "Zoom RED",
+      "nombre_deporte": "Acondicionamiento",
+      "ilimitado": false,
+      "entradas": 10,
+      "id_centro_entrenamiento": 5,
+      "id_participacion_deportista": 4626802
+    },
+    {
+      "id": 6,
+      "nombre": "Gimnasio Cajicá",
+      "nombre_centro_entrenamiento": "Cajicá",
+      "nombre_sede": "Gimnasio Cajicá",
+      "nombre_deporte": "Acondicionamiento",
+      "ilimitado": false,
+      "entradas": 10,
+      "id_centro_entrenamiento": 6,
+      "id_participacion_deportista": 4626802
+    },
+    {
+      "id": 7,
+      "nombre": "Práctica Libre de Natación CUR",
+      "nombre_centro_entrenamiento": "CUR - Centro Urbano de Recreación",
+      "nombre_sede": "Piscinas CUR",
+      "nombre_deporte": "Natación",
+      "ilimitado": false,
+      "entradas": 10,
+      "id_centro_entrenamiento": 7,
+      "id_participacion_deportista": 4626802
+    },
+    {
+      "id": 8,
+      "nombre": "Práctica Libre de Natación Calle 220",
+      "nombre_centro_entrenamiento": "Calle 220",
+      "nombre_sede": "Piscinas Calle 220",
+      "nombre_deporte": "Natación",
+      "ilimitado": false,
+      "entradas": 10,
+      "id_centro_entrenamiento": 8,
+      "id_participacion_deportista": 4626802
+    },
+    {
+      "id": 9,
+      "nombre": "Práctica Libre de Natación Cajicá",
+      "nombre_centro_entrenamiento": "Cajicá",
+      "nombre_sede": "Piscinas Cajicá",
+      "nombre_deporte": "Natación",
+      "ilimitado": false,
+      "entradas": 10,
+      "id_centro_entrenamiento": 9,
+      "id_participacion_deportista": 4626802
+    },
+    {
+      "id": 10,
+      "nombre": "Clase grupal Zona Franca",
+      "nombre_centro_entrenamiento": "CBI - Zona Franca",
+      "nombre_sede": "CBI - Zona Franca",
+      "nombre_deporte": "Acondicionamiento",
+      "ilimitado": false,
+      "entradas": 10,
+      "id_centro_entrenamiento": 10,
+      "id_participacion_deportista": 4626802
+    },
+    {
+      "id": 11,
+      "nombre": "Clase grupal Suba",
+      "nombre_centro_entrenamiento": "Suba Sede Integral",
+      "nombre_sede": "Salones Suba Sede Integral",
+      "nombre_deporte": "Acondicionamiento",
+      "ilimitado": false,
+      "entradas": 10,
+      "id_centro_entrenamiento": 11,
+      "id_participacion_deportista": 4626802
+    },
+    {
+      "id": 12,
+      "nombre": "Clase grupal Soacha",
+      "nombre_centro_entrenamiento": "CBI - Soacha 2",
+      "nombre_sede": "CBI - Soacha 2",
+      "nombre_deporte": "Acondicionamiento",
+      "ilimitado": false,
+      "entradas": 10,
+      "id_centro_entrenamiento": 12,
+      "id_participacion_deportista": 4626802
+    },
+    {
+      "id": 13,
+      "nombre": "Clase grupal San Roque",
+      "nombre_centro_entrenamiento": "San Roque",
+      "nombre_sede": "Salones San Roque",
+      "nombre_deporte": "Acondicionamiento",
+      "ilimitado": false,
+      "entradas": 10,
+      "id_centro_entrenamiento": 13,
+      "id_participacion_deportista": 4626802
+    },
+    {
+      "id": 14,
+      "nombre": "Clase grupal Chía",
+      "nombre_centro_entrenamiento": "CBI - Chia",
+      "nombre_sede": "CBI - Chia",
+      "nombre_deporte": "Acondicionamiento",
+      "ilimitado": false,
+      "entradas": 10,
+      "id_centro_entrenamiento": 14,
+      "id_participacion_deportista": 4626802
+    },
+    {
+      "id": 15,
+      "nombre": "Clase grupal Autopista Sur",
+      "nombre_centro_entrenamiento": "CBI - Autopista Sur",
+      "nombre_sede": "CBI - Autopista Sur",
+      "nombre_deporte": "Acondicionamiento",
+      "ilimitado": false,
+      "entradas": 10,
+      "id_centro_entrenamiento": 15,
+      "id_participacion_deportista": 4626802
+    },
+    {
+      "id": 16,
+      "nombre": "Gimnasio Calle 94",
+      "nombre_centro_entrenamiento": "Calle 94",
+      "nombre_sede": "Gimnasio Calle 94",
+      "nombre_deporte": "Acondicionamiento",
+      "ilimitado": false,
+      "entradas": 10,
+      "id_centro_entrenamiento": 16,
+      "id_participacion_deportista": 4626802
+    },
+    {
+      "id": 17,
+      "nombre": "Clase grupal al aire libre CUR Zonas Verdes",
+      "nombre_centro_entrenamiento": "CUR - Centro Urbano de Recreación",
+      "nombre_sede": "Zonas Verdes CUR",
+      "nombre_deporte": "Acondicionamiento",
+      "ilimitado": false,
+      "entradas": 10,
+      "id_centro_entrenamiento": 17,
+      "id_participacion_deportista": 4626802
+    },
+    {
+      "id": 18,
+      "nombre": "Clase grupal al aire libre Calle 220",
+      "nombre_centro_entrenamiento": "Calle 220",
+      "nombre_sede": "Parque Biosaludable 220",
+      "nombre_deporte": "Acondicionamiento",
+      "ilimitado": false,
+      "entradas": 10,
+      "id_centro_entrenamiento": 18,
+      "id_participacion_deportista": 4626802
+    },
+    {
+      "id": 19,
+      "nombre": "Clase grupal al aire libre Cajicá",
+      "nombre_centro_entrenamiento": "Cajicá",
+      "nombre_sede": "Zonas Verdes - Cajicá",
+      "nombre_deporte": "Acondicionamiento",
+      "ilimitado": false,
+      "entradas": 10,
+      "id_centro_entrenamiento": 19,
+      "id_participacion_deportista": 4626802
+    },
+    {
+      "id": 20,
+      "nombre": "Clase grupal Salones Bloque G",
+      "nombre_centro_entrenamiento": "Avenida 68",
+      "nombre_sede": "Bloque G Avenida 68",
+      "nombre_deporte": "Acondicionamiento",
+      "ilimitado": false,
+      "entradas": 10,
+      "id_centro_entrenamiento": 20,
+      "id_participacion_deportista": 4626802
+    },
+    {
+      "id": 21,
+      "nombre": "Clase grupal CUR",
+      "nombre_centro_entrenamiento": "CUR - Centro Urbano de Recreación",
+      "nombre_sede": "Salones CUR - Bloque H",
+      "nombre_deporte": "Acondicionamiento",
+      "ilimitado": false,
+      "entradas": 10,
+      "id_centro_entrenamiento": 21,
+      "id_participacion_deportista": 4626802
+    },
+    {
+      "id": 22,
+      "nombre": "Clase grupal Calle 220 salones",
+      "nombre_centro_entrenamiento": "Calle 220",
+      "nombre_sede": "Salones Calle 220",
+      "nombre_deporte": "Acondicionamiento",
+      "ilimitado": false,
+      "entradas": 10,
+      "id_centro_entrenamiento": 22,
+      "id_participacion_deportista": 4626802
+    },
+    {
+      "id": 23,
+      "nombre": "Gimnasio Zona Franca",
+      "nombre_centro_entrenamiento": "CBI - Zona Franca",
+      "nombre_sede": "Gimnasio Zona Franca",
+      "nombre_deporte": "Acondicionamiento",
+      "ilimitado": false,
+      "entradas": 10,
+      "id_centro_entrenamiento": 23,
+      "id_participacion_deportista": 4626802
+    },
+    {
+      "id": 24,
+      "nombre": "Gimnasio Suba",
+      "nombre_centro_entrenamiento": "Suba Sede Integral",
+      "nombre_sede": "Gimnasio Suba Sede Integral",
+      "nombre_deporte": "Acondicionamiento",
+      "ilimitado": false,
+      "entradas": 10,
+      "id_centro_entrenamiento": 24,
+      "id_participacion_deportista": 4626802
+    },
+    {
+      "id": 25,
+      "nombre": "Gimnasio San Roque",
+      "nombre_centro_entrenamiento": "San Roque",
+      "nombre_sede": "Gimnasio San Roque",
+      "nombre_deporte": "Acondicionamiento",
+      "ilimitado": false,
+      "entradas": 10,
+      "id_centro_entrenamiento": 25,
+      "id_participacion_deportista": 4626802
+    },
+    {
+      "id": 26,
+      "nombre": "Gimnasio CBI - Chia",
+      "nombre_centro_entrenamiento": "CBI - Chia",
+      "nombre_sede": "Gimnasio Chía",
+      "nombre_deporte": "Acondicionamiento",
+      "ilimitado": false,
+      "entradas": 10,
+      "id_centro_entrenamiento": 26,
+      "id_participacion_deportista": 4626802
+    },
+    {
+      "id": 27,
+      "nombre": "Gimnasio Calle 220",
+      "nombre_centro_entrenamiento": "Calle 220",
+      "nombre_sede": "Gimnasio Calle 220",
+      "nombre_deporte": "Acondicionamiento",
+      "ilimitado": false,
+      "entradas": 10,
+      "id_centro_entrenamiento": 27,
+      "id_participacion_deportista": 4626802
+    },
+    {
+      "id": 28,
+      "nombre": "Gimnasio Auto Sur",
+      "nombre_centro_entrenamiento": "CBI - Autopista Sur",
+      "nombre_sede": "Gimnasio Autopista Sur",
+      "nombre_deporte": "Acondicionamiento",
+      "ilimitado": false,
+      "entradas": 10,
+      "id_centro_entrenamiento": 28,
+      "id_participacion_deportista": 4626802
+    },
+    {
+      "id": 29,
+      "nombre": "Gimnasio CUR",
+      "nombre_centro_entrenamiento": "CUR - Centro Urbano de Recreación",
+      "nombre_sede": "Gimnasio CUR",
+      "nombre_deporte": "Acondicionamiento",
+      "ilimitado": false,
+      "entradas": 10,
+      "id_centro_entrenamiento": 29,
+      "id_participacion_deportista": 4626802
+    }
+  ]
+}

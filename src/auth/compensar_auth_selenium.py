@@ -147,6 +147,89 @@ class CompensarAuthSelenium:
                     pass
             return False
     
+    def _fetch_tiqueteras_data(self):
+        """Obtiene los datos de tiqueteras scrapeando el HTML renderizado"""
+        import json
+        from bs4 import BeautifulSoup
+        
+        try:
+            # Navegar a la página principal de reservas (que carga los datos via AJAX)
+            reservas_url = f"{Config.API_BASE_URL}/sistema.php/entrenamiento/reserva/practica/libre?autenticador=compensar"
+            print(f"      Navegando a página de reservas: {reservas_url}")
+            self.driver.get(reservas_url)
+            
+            # Esperar a que la página cargue y Angular renderice los datos
+            print("      Esperando a que Angular renderice los datos...")
+            time.sleep(8)  # Dar más tiempo para que Angular renderice todo
+            
+            # Obtener el HTML renderizado
+            page_source = self.driver.page_source
+            soup = BeautifulSoup(page_source, 'html.parser')
+            
+            # Buscar todos los elementos que contienen tiqueteras
+            # Están en divs con ng-repeat="tiquetera in controller.tiqueteras.tiqueteras"
+            tiquetera_divs = soup.find_all('div', {'ng-repeat': lambda x: x and 'tiquetera in controller.tiqueteras.tiqueteras' in x})
+            
+            if not tiquetera_divs:
+                print("      ⚠️ No se encontraron tiqueteras en el HTML")
+                with open('reservas_page_debug.html', 'w', encoding='utf-8') as f:
+                    f.write(page_source)
+                return False
+            
+            print(f"      📊 Encontradas {len(tiquetera_divs)} tiqueteras en el HTML")
+            
+            # Extraer datos de cada tiquetera
+            tiqueteras = []
+            for idx, div in enumerate(tiquetera_divs):
+                try:
+                    # Extraer nombre (en h5 > strong)
+                    nombre_elem = div.find('h5')
+                    nombre = nombre_elem.find('strong').get_text(strip=True) if nombre_elem else f"Tiquetera {idx+1}"
+                    
+                    # Extraer todas las labels
+                    labels = div.find_all('label', class_='progress-label')
+                    
+                    # Determinar si es ilimitada
+                    ilimitado = any('ilimitada' in label.get_text().lower() for label in labels)
+                    
+                    # Extraer sede, centro, deporte (están en labels sin clase especial)
+                    label_texts = [label.get_text(strip=True) for label in labels if 'nombre-plan' not in label.get('class', [])]
+                    
+                    # Filtrar textos vacíos y fechas
+                    info_labels = [text for text in label_texts if text and 'nov.' not in text.lower() and 'dic.' not in text.lower() and 'días restantes' not in text.lower() and 'ilimitada' not in text.lower() and 'prioridad' not in text.lower()]
+                    
+                    tiquetera_data = {
+                        'id': idx + 1,
+                        'nombre': nombre,
+                        'nombre_centro_entrenamiento': info_labels[0] if len(info_labels) > 0 else nombre,
+                        'nombre_sede': info_labels[1] if len(info_labels) > 1 else info_labels[0] if len(info_labels) > 0 else 'Desconocida',
+                        'nombre_deporte': info_labels[2] if len(info_labels) > 2 else 'Acondicionamiento',
+                        'ilimitado': ilimitado,
+                        'entradas': 0 if ilimitado else 10,  # Valor por defecto
+                        'id_centro_entrenamiento': idx + 1,
+                        'id_participacion_deportista': 4626802  # Del debug_deportistas.json
+                    }
+                    
+                    tiqueteras.append(tiquetera_data)
+                    
+                except Exception as e:
+                    print(f"      ⚠️ Error procesando tiquetera {idx+1}: {str(e)}")
+                    continue
+            
+            # Guardar en cache
+            cache_data = {'tiqueteras': tiqueteras}
+            with open('tiqueteras_cache.json', 'w', encoding='utf-8') as f:
+                json.dump(cache_data, f, ensure_ascii=False, indent=2)
+            
+            print(f"      ✅ Datos de {len(tiqueteras)} tiqueteras guardados en tiqueteras_cache.json")
+            return True
+                
+        except Exception as e:
+            print(f"      ❌ Error obteniendo datos: {str(e)}")
+            import traceback
+            traceback.print_exc()
+            return False
+    
     def get_user_id(self) -> str:
         """Obtiene el ID de usuario"""
         if not self.authenticated:

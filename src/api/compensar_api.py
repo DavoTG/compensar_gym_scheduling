@@ -20,6 +20,9 @@ class CompensarAPI:
         try:
             print("📋 Obteniendo tiqueteras disponibles...")
             
+            # NO usar cache - siempre obtener datos frescos de la API
+            print("   📡 No hay cache, consultando API...")
+            
             # Endpoint correcto descubierto en el JS de la página
             # url_tiqueteras: '/sistema.php/entrenamiento/reserva/tiqueteras'
             api_url = f"{Config.API_BASE_URL}/sistema.php/entrenamiento/reserva/tiqueteras"
@@ -53,71 +56,36 @@ class CompensarAPI:
                 except:
                     print("   ⚠️ No se pudo extraer ID de deportista")
             
-            # 2. Intentar obtener tiqueteras usando el ID si está disponible
-            endpoints_to_try = []
+            if not id_participacion:
+                raise Exception("No se pudo obtener el ID de participante")
             
-            # Endpoint base descubierto en JS
-            endpoints_to_try.append({
-                'url': f"{Config.API_BASE_URL}/sistema.php/entrenamiento/reserva/tiqueteras",
-                'method': 'POST',
-                'data': {'id_participacion': id_participacion} if id_participacion else {}
-            })
+            # 2. Usar el endpoint correcto con el payload correcto
+            api_url = f"{Config.API_BASE_URL}/sistema.php/entrenamiento/reserva/tiqueteras"
             
-            # Variación con ID en URL (común en REST)
-            if id_participacion:
-                endpoints_to_try.append({
-                    'url': f"{Config.API_BASE_URL}/sistema.php/entrenamiento/reserva/tiqueteras/{id_participacion}",
-                    'method': 'GET',
-                    'data': {}
-                })
-                # Variación query param
-                endpoints_to_try.append({
-                    'url': f"{Config.API_BASE_URL}/sistema.php/entrenamiento/reserva/tiqueteras",
-                    'method': 'GET',
-                    'data': {'id_participacion': id_participacion}
-                })
-
-            response = None
-            success = False
+            # Payload correcto según lo que proporcionó el usuario
+            payload = {
+                "idParticipante": id_participacion,
+                "historico": False
+            }
             
-            for endpoint in endpoints_to_try:
-                try:
-                    print(f"   🔄 Probando: {endpoint['url']} ({endpoint['method']})")
-                    if endpoint['method'] == 'POST':
-                        response = self.session.post(
-                            endpoint['url'],
-                            data=endpoint['data'],
-                            params={'autenticador': 'compensar'},
-                            allow_redirects=True
-                        )
-                    else:
-                        response = self.session.get(
-                            endpoint['url'],
-                            params={'autenticador': 'compensar', **endpoint['data']},
-                            allow_redirects=True
-                        )
-                    
-                    if response.status_code == 200:
-                        # Verificar si es JSON válido
-                        try:
-                            data = response.json()
-                            success = True
-                            print("   ✅ ¡Endpoint correcto encontrado!")
-                            break
-                        except:
-                            print("   ⚠️ Respuesta no es JSON")
-                    else:
-                        print(f"   ⚠️ Falló con {response.status_code}")
-                        
-                except Exception as e:
-                    print(f"   ❌ Error probando endpoint: {str(e)}")
-
-            if not success or not response:
-                # Si todo falla, guardar último error
-                if response:
-                    with open('debug_api_error.html', 'w', encoding='utf-8') as f:
-                        f.write(response.text)
-                raise Exception("No se pudieron obtener las tiqueteras en ningún endpoint conocido")
+            print(f"   🔄 Consultando tiqueteras con POST: {api_url}")
+            response = self.session.post(
+                api_url,
+                json=payload,  # Enviar como JSON
+                params={'autenticador': 'compensar'},
+                headers={
+                    'Content-Type': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+                allow_redirects=True
+            )
+            
+            if response.status_code != 200:
+                # Si falla, guardar debug
+                with open('debug_api_error.html', 'w', encoding='utf-8') as f:
+                    f.write(response.text)
+                raise Exception(f"Error al obtener tiqueteras: {response.status_code}")
+            
             
             # Intentar parsear JSON
             try:
@@ -142,7 +110,10 @@ class CompensarAPI:
                     id_centro_entrenamiento=t.get('id_centro_entrenamiento'),
                     id_participacion_deportista=t.get('id_participacion_deportista'),
                     entradas=t.get('entradas', 0),
-                    ilimitado=t.get('ilimitado', False)
+                    ilimitado=t.get('ilimitado', False),
+                    id_tiquetera=t.get('id_tiquetera', t.get('id', 0)),
+                    id_escenario=t.get('id_escenario', t.get('id_centro_entrenamiento', 0)),
+                    id_centro=t.get('id_centro', t.get('id_centro_entrenamiento', 0))
                 )
                 tiqueteras.append(tiquetera)
             
@@ -170,15 +141,42 @@ class CompensarAPI:
         try:
             print(f"🕐 Obteniendo horarios para {tiquetera.nombre_centro_entrenamiento} - {fecha}...")
             
-            params = {
-                'id_centro_entrenamiento': tiquetera.id_centro_entrenamiento,
-                'id_participacion_deportista': tiquetera.id_participacion_deportista,
-                'fecha': fecha
+            # Obtener datos del deportista primero
+            deportistas_url = f"{Config.API_BASE_URL}/sistema.php/grupofamiliar/lista/json"
+            resp_dep = self.session.get(
+                deportistas_url,
+                params={'autenticador': 'compensar'},
+                headers={'X-Requested-With': 'XMLHttpRequest'}
+            )
+            
+            participantes_data = []
+            if resp_dep.status_code == 200:
+                try:
+                    data_dep = resp_dep.json()
+                    if data_dep.get('personas') and len(data_dep['personas']) > 0:
+                        participantes_data = data_dep['personas']
+                except:
+                    pass
+            
+            # Payload correcto según el usuario
+            payload = {
+                "idTiquetera": tiquetera.id_tiquetera if tiquetera.id_tiquetera else tiquetera.id,
+                "idEscenario": tiquetera.id_escenario if tiquetera.id_escenario else tiquetera.id_centro_entrenamiento,
+                "participantes": participantes_data,
+                "inicioInmediato": False,
+                "turnosSeguidos": 1,
+                "idCentro": tiquetera.id_centro if tiquetera.id_centro else tiquetera.id_centro_entrenamiento
             }
             
-            response = self.session.get(
+            print(f"   📡 Consultando horarios con POST")
+            response = self.session.post(
                 f"{Config.API_BASE_URL}{Config.SCHEDULE_ENDPOINT}",
-                params=params
+                json=payload,
+                params={'autenticador': 'compensar'},
+                headers={
+                    'Content-Type': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
             )
             
             if response.status_code != 200:

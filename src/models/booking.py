@@ -13,6 +13,9 @@ class Tiquetera:
     id_participacion_deportista: int
     entradas: int
     ilimitado: bool
+    id_tiquetera: int = 0  # ID real de la tiquetera en el sistema
+    id_escenario: int = 0  # ID del escenario/sede
+    id_centro: int = 0  # ID del centro
     
     def __str__(self):
         entradas_str = "Ilimitadas" if self.ilimitado else str(self.entradas)

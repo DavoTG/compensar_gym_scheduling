@@ -264,7 +264,7 @@
                     <h4>{{ deporte }}</h4>
                     {% for tiquetera in tiqueteras %}
                     <div class="tiquetera-item"
-                        onclick="selectTiquetera({{ tiquetera.id }}, '{{ tiquetera.nombre_centro_entrenamiento }}', '{{ tiquetera.nombre_sede }}')">
+                        onclick="selectTiquetera({{ tiquetera.id }}, {{ tiquetera.nombre_centro_entrenamiento|tojson }}, {{ tiquetera.nombre_sede|tojson }})">
                         <div class="tiquetera-name">{{ tiquetera.nombre_centro_entrenamiento }}</div>
                         <div class="tiquetera-sede">📍 {{ tiquetera.nombre_sede }}</div>
                     </div>
