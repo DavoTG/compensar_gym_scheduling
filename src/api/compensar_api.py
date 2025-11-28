@@ -1,8 +1,19 @@
 import requests
-from typing import List, Dict, Optional
+import json
+import time
+import logging
+from typing import List, Dict, Optional, Any
 from datetime import datetime, timedelta
 from config.config import Config
 from src.models.booking import Tiquetera, Horario, Reserva
+
+# Configure logging
+logging.basicConfig(
+    filename='server_debug.log',
+    level=logging.DEBUG,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    filemode='a'
+)
 
 class CompensarAPI:
     """Maneja las interacciones con la API de Compensar"""
@@ -10,7 +21,7 @@ class CompensarAPI:
     def __init__(self, session: requests.Session):
         self.session = session
         self.participantes_data = []
-    
+
     def get_tiqueteras(self) -> List[Tiquetera]:
         """
         Obtiene todas las tiqueteras (membresías) disponibles del usuario
@@ -279,11 +290,11 @@ class CompensarAPI:
             True si la reserva fue exitosa, False en caso contrario
         """
         try:
-            print(f"📅 Reservando: {reserva}...")
+            logging.info(f"📅 Reservando: {reserva}...")
             
             # Construir payload complejo requerido por Compensar
             if not reserva.horario.raw_data:
-                print("❌ Error: No hay datos crudos del horario para realizar la reserva")
+                logging.error("❌ Error: No hay datos crudos del horario para realizar la reserva")
                 return False
                 
             # Obtener datos del centro/escenario desde el raw_data del horario
@@ -294,10 +305,15 @@ class CompensarAPI:
             # Usar participantes cacheados o intentar obtenerlos si no existen
             participantes = self.participantes_data
             if not participantes:
-                print("⚠️ No hay participantes cacheados, intentando obtenerlos...")
+                logging.warning("⚠️ No hay participantes cacheados, intentando obtenerlos...")
                 # Aquí podríamos llamar a un método para obtener participantes si fuera necesario
                 # Por ahora usaremos una lista vacía o lo que tenga la tiquetera
                 pass
+            
+            # Agregar campos requeridos a cada participante
+            for p in participantes:
+                p['usos'] = 1
+                p['turno'] = 1
 
             payload = {
                 "idTiquetera": reserva.tiquetera.id_tiquetera if reserva.tiquetera.id_tiquetera else reserva.tiquetera.id,
@@ -309,42 +325,61 @@ class CompensarAPI:
                 "turnosSeguidos": 1
             }
             
-            # Debug payload (truncado)
+            # Debug payload
             import json
-            payload_str = json.dumps(payload)
-            print(f"   📦 Payload Reserva: {payload_str[:200]}...")
+            payload_str = json.dumps(payload, indent=2)
+            logging.info(f"📦 Payload Reserva: {payload_str}")
+            
+            # Save payload to file for inspection
+            try:
+                with open('last_reservation_payload.json', 'w', encoding='utf-8') as f:
+                    f.write(payload_str)
+            except Exception as e:
+                logging.error(f"Error saving payload: {e}")
             
             response = self.session.post(
-                f"{Config.API_BASE_URL}{Config.BOOKING_ENDPOINT}", # '/sistema.php/entrenamiento/reserva/guardar'
+                f"{Config.API_BASE_URL}{Config.BOOKING_ENDPOINT}",
                 json=payload,
                 params={'autenticador': 'compensar'},
                 headers={
                     'Content-Type': 'application/json',
-                    'X-Requested-With': 'XMLHttpRequest'
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Referer': f"{Config.API_BASE_URL}/sistema.php/entrenamiento/reserva/practica/libre"
                 }
             )
             
             if response.status_code == 200:
                 result = response.json()
                 if result.get('success') or result.get('estado') == 'exitoso':
-                    print(f"✅ Reserva exitosa: {reserva}")
+                    logging.info(f"✅ Reserva exitosa: {reserva}")
                     return True
                 else:
                     error_msg = result.get('mensaje', 'Error desconocido')
-                    print(f"❌ Error en reserva: {error_msg}")
-                    print(f"   Respuesta completa: {result}")
+                    logging.error(f"❌ Error en reserva: {error_msg}")
+                    logging.error(f"   Respuesta completa: {result}")
                     return False
             else:
-                print(f"❌ Error HTTP {response.status_code} al realizar reserva")
-                print(f"   Respuesta: {response.text}")
+                logging.error(f"❌ Error HTTP {response.status_code} al realizar reserva")
+                logging.error(f"   URL: {response.url}")
+                logging.error(f"   Respuesta: {response.text[:200]}...")
+                
+                # Guardar HTML de error para debug
+                try:
+                    with open('debug_reservation_error.html', 'w', encoding='utf-8') as f:
+                        f.write(response.text)
+                except Exception as e:
+                    logging.error(f"Error guardando debug html: {e}")
+                    
                 return False
                 
         except Exception as e:
-            print(f"❌ Error realizando reserva: {str(e)}")
+            logging.error(f"❌ Error crítico en realizar_reserva: {str(e)}")
             if Config.DEBUG:
                 import traceback
-                traceback.print_exc()
+                logging.error(traceback.format_exc())
             return False
+                
+
     
     def realizar_reservas_multiples(self, reservas: List[Reserva]) -> Dict[str, int]:
         """

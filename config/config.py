@@ -17,7 +17,7 @@ class Config:
     # Endpoints API
     TIQUETERAS_ENDPOINT = "/sistema.php/entrenamiento/reserva/practica/libre"
     SCHEDULE_ENDPOINT = "/entrenamiento/reserva/practica/libre/horarios"
-    BOOKING_ENDPOINT = "/entrenamiento/reserva/practica/libre/reservar"
+    BOOKING_ENDPOINT = "/sistema.php/entrenamiento/reserva/practica/libre/guardar"
     
     # Configuración
     DEBUG = os.getenv('DEBUG', 'True').lower() == 'true'  # True por defecto para debugging
