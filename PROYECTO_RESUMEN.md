@@ -31,7 +31,6 @@
 ```
 Gym scheduling/
 ├── 📄 app.py                         # Aplicación web Flask ⭐
-├── 📄 main.py                        # CLI (opcional, legacy)
 ├── 📄 start.bat                      # Inicio rápido ⭐
 ├── 📄 setup_venv.bat                 # Setup del venv ⭐
 ├── 📄 requirements.txt               # Dependencias
