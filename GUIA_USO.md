@@ -22,11 +22,6 @@ Las dependencias ya están instaladas. Si necesitas reinstalarlas:
 pip install -r requirements.txt
 ```
 
-## Paso 3: Ejecutar la Aplicación
-
-```bash
-python main.py
-```
 
 ## 📖 Cómo Usar la Aplicación
 
